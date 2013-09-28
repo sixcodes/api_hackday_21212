@@ -175,3 +175,5 @@ LOGGING = {
         },
     }
 }
+
+TASTYPIE_DEFAULT_FORMATS = ['json',]
