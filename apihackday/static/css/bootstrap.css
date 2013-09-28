@@ -6857,3 +6857,8 @@ td.visible-print {
     display: none !important;
   }
 }
+
+.footer{
+    border-top:solid thin silver;
+    clear:both;
+}

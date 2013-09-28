@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 {% load staticfiles %}
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="utf-8">
     <title>Zezaz - improving your github experience</title>
@@ -40,54 +40,80 @@
 </div>
 <div class="container">
 
-    <h1><img src="{% static 'img/clipboard.svg' %}" alt="Calendar"> Criar Bolão</h1>
-<br>
-    <form action="javascript:void(0);" id="criar-bolao">
-        <input type="text" value="" placeholder="Titulo do Bolão" class="form-control">
-        <input type="text" value="" placeholder="Nome do Time 1" class="form-control">
-        <input type="text" value="" placeholder="Nome do Time 2" class="form-control">
-    </form>
-</div>
+    <div id="content">
 
-<div class="full-container-team-header">
-    <h6>Team:</h6>
-</div>
-<div class="full-container-team">
-    <div class="container">
-        <div class="row text-center">
-            <div class="col-lg-4">
-                <img class="img-circle img-thumb"
-                     src="https://2.gravatar.com/avatar/8f8d53501d40286f6a2f228326926909"
-                     data-src="holder.js/100x100" alt="100x100">
-                <h4>cesarFrias</h4>
-                <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis</p>
-                <p class="text-right"><a class="btn btn-sm btn-primary" href="#">View details &raquo;</a></p>
-            </div>
-            <div class="col-lg-4">
-                <img class="img-circle img-thumb"
-                     src="https://2.gravatar.com/avatar/467d5a76b07519c0f0678cb8218e9b45"
-                     data-src="holder.js/100x100" alt="100x100">
-                <h4>ebertti</h4>
-                <p>Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.</p>
-                <p class="text-right"><a class="btn btn-sm btn-primary" href="#">View details &raquo;</a></p>
-            </div>
-            <div class="col-lg-4">
-                <img class="img-circle img-thumb"
-                     src="https://1.gravatar.com/avatar/59bd0447c07625a205b1a5a2ea0434aa"
-                     data-src="holder.js/100x100" alt="100x100">
-                <h4>joaoleite</h4>
-                <p>Semper. Fusce dapibus, tellus ac cursus commodo, tortor</p>
-                <p class="text-right"><a class="btn btn-sm btn-primary" href="#">View details &raquo;</a></p>
-            </div>
+        <div class="col-md-4">
+              <div class="todo">
+                    <div class="todo-search">
+                      <input class="todo-search-field" type="search" value="" placeholder="Search">
+                    </div>
+
+                    <ul>
+                          <li class="todo-done">
+                                <div class="todo-icon fui-user"></div>
+                                <div class="todo-content">
+                                      <h4 class="todo-name">
+                                        Meet <strong>Adrian</strong> at <strong>6pm</strong>
+                                      </h4>
+                                      Times Square
+                                </div>
+                          </li>
+
+                          <li>
+                            <div class="todo-icon fui-list"></div>
+                            <div class="todo-content">
+                              <h4 class="todo-name">
+                                Chat with <strong>V.Kudinov</strong>
+                              </h4>
+                              Skype conference an 9 am
+                            </div>
+                          </li>
+
+                          <li>
+                            <div class="todo-icon fui-eye"></div>
+                            <div class="todo-content">
+                              <h4 class="todo-name">
+                                Watch <strong>Iron Man</strong>
+                              </h4>
+                              1998 Broadway
+                            </div>
+                          </li>
+
+                          <li>
+                            <div class="todo-icon fui-time"></div>
+                            <div class="todo-content">
+                              <h4 class="todo-name">
+                                Fix bug on a <strong>Website</strong>
+                              </h4>
+                              As soon as possible
+                            </div>
+                          </li>
+
+                    </ul>
+              </div>
         </div>
+
+        <div class="popover" style="top: 37px; left: 255px; display: block;">
+            <div class="arrow" style="top: 23.57512953367876%;"></div>
+
+
+            <div class="popover-content">And here's some amazing content. It's very engaging. right?</div>
+        </div>
+
+        <p>
+        <h3 class="popover-title">A Title</h3>
+        </p>
+
     </div>
-</div>
-<div class="container">
 
     <div class="footer">
-        <p>&copy; Amazing Works 2013</p>
+        <p>© Company 2013</p>
     </div>
 </div>
+
+
+
+
 <!-- /container -->
 
 
