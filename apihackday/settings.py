@@ -117,7 +117,6 @@ INSTALLED_APPS = (
     'social_auth',
     'tastypie',
     'south',
-    'django_verbatim',
 )
 
 

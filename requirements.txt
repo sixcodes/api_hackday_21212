@@ -3,7 +3,6 @@ MySQL-python==1.2.4
 South==0.8.2
 -e git://github.com/omab/django-social-auth.git@a56de6257f6de6cba411496f6e86c3df3c8b577d#egg=django_social_auth-dev
 django-tastypie==0.10.0
-django-verbatim==0.1
 httplib2==0.8
 oauth2==1.5.211
 oauthlib==0.6.0
