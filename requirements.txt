@@ -1,5 +1,5 @@
 Django==1.5.4
-django-social-auth==0.7.28
+-e git://github.com/omab/django-social-auth.git@a56de6257f6de6cba411496f6e86c3df3c8b577d#egg=django-social-auth
 django-tastypie==0.10.0
 httplib2==0.8
 oauth2==1.5.211

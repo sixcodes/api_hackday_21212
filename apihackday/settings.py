@@ -14,11 +14,11 @@ MANAGERS = ADMINS
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.', # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': environ.get("DB_SCHEMA"),                      # Or path to database file if using sqlite3.
-        'USER': environ.get("DB_USER"),                      # Not used with sqlite3.
-        'PASSWORD': environ.get("DB_PWD"),                  # Not used with sqlite3.
-        'HOST': environ.get("DB_HOST"),                      # Set to empty string for localhost. Not used with sqlite3.
+        'ENGINE': 'django.db.backends.mysql',  # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
+        'NAME': environ.get("DB_SCHEMA", "bolao"),                      # Or path to database file if using sqlite3.
+        'USER': environ.get("DB_USER", "root"),                      # Not used with sqlite3.
+        'PASSWORD': environ.get("DB_PWD", ""),                  # Not used with sqlite3.
+        'HOST': environ.get("DB_HOST", "127.0.0.1"),                      # Set to empty string for localhost. Not used with sqlite3.
         'PORT': '',                      # Set to empty string for default. Not used with sqlite3.
     }
 }
@@ -111,6 +111,8 @@ TEMPLATE_DIRS = (
     # Don't forget to use absolute paths, not relative paths.
 )
 
+SOCIAL_AUTH_UID_LENGTH = 200
+
 INSTALLED_APPS = (
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -150,8 +152,12 @@ AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',
 )
 
-FACEBOOK_APP_ID = ''
-FACEBOOK_API_SECRET = ''
+#FACEBOOK_APP_ID = ''
+#FACEBOOK_API_SECRET = ''
+
+TEMPLATE_CONTEXT_PROCESSORS = (
+    'social_auth.context_processors.social_auth_by_type_backends',
+)
 
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to
