@@ -144,8 +144,8 @@ AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',
 )
 
-#FACEBOOK_APP_ID = ''
-#FACEBOOK_API_SECRET = ''
+FACEBOOK_APP_ID = environ.get("FB_APP_ID", "")
+FACEBOOK_API_SECRET = environ.get("FB_APP_KEY", "")
 
 TEMPLATE_CONTEXT_PROCESSORS = (
     'django.contrib.messages.context_processors.messages',
