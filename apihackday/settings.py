@@ -110,14 +110,13 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    # Uncomment the next line to enable the admin:
-    # 'django.contrib.admin',
-    # Uncomment the next line to enable admin documentation:
-    # 'django.contrib.admindocs',
+
+    'django.contrib.admin',
+    'django.contrib.admindocs',
     'bolao',
     'social_auth',
     'tastypie',
-
+    'south',
 )
 
 
@@ -149,6 +148,8 @@ AUTHENTICATION_BACKENDS = (
 #FACEBOOK_API_SECRET = ''
 
 TEMPLATE_CONTEXT_PROCESSORS = (
+    'django.contrib.messages.context_processors.messages',
+    'django.contrib.auth.context_processors.auth',
     'social_auth.context_processors.social_auth_by_type_backends',
 )
 
