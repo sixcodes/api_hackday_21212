@@ -10,6 +10,8 @@ v1_api.register(ApostadorResource())
 
 urlpatterns = patterns('',
     url(r'^$', 'bolao.views.home', name='home'),
+    url(r'^listarBolao$', 'bolao.views.listarBolao', name='listarBolao'),
+    url(r'^criarBolao$', 'bolao.views.criarBolao', name='criarBolao'),
     # url(r'^apihackday/', include('apihackday.foo.urls')),
     url(r'', include('social_auth.urls')),
     url(r'^api/', include(v1_api.urls)),
