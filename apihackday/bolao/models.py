@@ -17,3 +17,4 @@ class Aposta(models.Model):
     valor_time_1 = models.IntegerField(null=True)
     valor_time_2 = models.IntegerField(null=True)
     status_aposta = models.BooleanField(default=False)
+    owner = models.ForeignKey(User)
