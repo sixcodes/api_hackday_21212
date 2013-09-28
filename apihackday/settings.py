@@ -116,7 +116,7 @@ INSTALLED_APPS = (
     'bolao',
     'social_auth',
     'tastypie',
-
+    'south',
 )
 
 
