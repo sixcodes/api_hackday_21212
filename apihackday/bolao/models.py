@@ -13,7 +13,7 @@ class Bolao(models.Model):
 
 
 class Aposta(models.Model):
-    bolao = models.ForeignKey(Bolao)
+    bolao = models.ForeignKey(Bolao, related_name='apostas')
     valor_time_1 = models.IntegerField(null=True)
     valor_time_2 = models.IntegerField(null=True)
     status_aposta = models.BooleanField(default=False)
