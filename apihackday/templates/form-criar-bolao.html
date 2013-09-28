@@ -1,8 +1,13 @@
-  <h1><img src="{% static 'img/clipboard.svg' %}" alt="Calendar"> Criar Bolão</h1>
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block container %}
+<h1><img src="{% static 'img/clipboard.svg' %}" alt="Calendar"> Criar Bolão</h1>
 <br>
-    <form action="javascript:void(0);" id="criar-bolao" role="form">
+    <form action="javascript:void(0);" id="criar-bolao">
         <input type="text" value="" placeholder="Titulo do Bolão" class="form-control">
         <input type="text" value="" placeholder="Nome do Time 1" class="form-control">
         <input type="text" value="" placeholder="Nome do Time 2" class="form-control">
-        <input type="submit" class="btn btn-block btn-lg btn-success" value="Criar" >
+	<input type="submit" class="btn btn-block btn-lg btn-success" value="Criar" >
+    </form>
+{% endblock %}        
     </form>
