@@ -1,12 +1,14 @@
 from django.conf.urls import patterns, include, url
 from tastypie.api import Api
-from bolao.api import ApostadorResource
+from bolao.api import ApostadorResource, BolaoResource, ApostaResource
 
 from django.contrib import admin
 admin.autodiscover()
 
 v1_api = Api(api_name='v1')
 v1_api.register(ApostadorResource())
+v1_api.register(BolaoResource())
+v1_api.register(ApostaResource())
 
 urlpatterns = patterns('',
     url(r'^$', 'bolao.views.home', name='home'),
