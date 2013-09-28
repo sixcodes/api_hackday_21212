@@ -6,8 +6,8 @@ class Bolao(models.Model):
     titulo = models.CharField(max_length=255)
     time_1 = models.CharField(max_length=255)
     time_2 = models.CharField(max_length=255)
-    resultado_time_1 = models.IntegerField(null=True)
-    resultado_time_2 = models.IntegerField(null=True)
+    resultado_time_1 = models.IntegerField(null=True, blank=True)
+    resultado_time_2 = models.IntegerField(null=True, blank=True)
     admin = models.ForeignKey(User)
     encerrado = models.BooleanField(default=False)
 
