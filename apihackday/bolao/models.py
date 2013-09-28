@@ -1,11 +1,5 @@
+from django.contrib.auth.models import User
 from django.db import models
-
-
-class Apostador(models.Model):
-    nome = models.CharField(max_length=255)
-    email = models.EmailField()
-    facebook_id = models.IntegerField(null=True)
-    boloes = models.ManyToManyField('Bolao')
 
 
 class Bolao(models.Model):
@@ -14,7 +8,7 @@ class Bolao(models.Model):
     time_2 = models.CharField(max_length=255)
     resultado_time_1 = models.IntegerField(null=True)
     resultado_time_2 = models.IntegerField(null=True)
-    admin = models.ForeignKey(Apostador)
+    admin = models.ForeignKey(User)
     encerrado = models.BooleanField(default=False)
 
 
