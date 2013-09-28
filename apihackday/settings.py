@@ -1,10 +1,13 @@
+#encoding: utf-8
 # Django settings for apihackday project.
-
+from os import environ
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
-    # ('Your Name', 'your_email@example.com'),
+    ('Dalton Barreto', 'daltonmatos@gmail.com'),
+    ('Jesue Junior', 'your_email@example.com'),
+    ('Bruno Melo', 'your_email@example.com'),
 )
 
 MANAGERS = ADMINS
@@ -12,10 +15,10 @@ MANAGERS = ADMINS
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.', # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': '',                      # Or path to database file if using sqlite3.
-        'USER': '',                      # Not used with sqlite3.
-        'PASSWORD': '',                  # Not used with sqlite3.
-        'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
+        'NAME': environ.get("DB_SCHEMA"),                      # Or path to database file if using sqlite3.
+        'USER': environ.get("DB_USER"),                      # Not used with sqlite3.
+        'PASSWORD': environ.get("DB_PWD"),                  # Not used with sqlite3.
+        'HOST': environ.get("DB_HOST"),                      # Set to empty string for localhost. Not used with sqlite3.
         'PORT': '',                      # Set to empty string for default. Not used with sqlite3.
     }
 }
