@@ -2,17 +2,14 @@ from django.conf.urls import patterns, include, url
 from tastypie.api import Api
 from bolao.api import ApostadorResource
 
-# Uncomment the next two lines to enable the admin:
-# from django.contrib import admin
-# admin.autodiscover()
+from django.contrib import admin
+admin.autodiscover()
 
 v1_api = Api(api_name='v1')
 v1_api.register(ApostadorResource())
 
 urlpatterns = patterns('',
-
-    # Examples:
-    # url(r'^$', 'apihackday.views.home', name='home'),
+    url(r'^$', 'bolao.views.home', name='home'),
     # url(r'^apihackday/', include('apihackday.foo.urls')),
     url(r'', include('social_auth.urls')),
     url(r'^api/', include(v1_api.urls)),
@@ -21,5 +18,5 @@ urlpatterns = patterns('',
     # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
 
     # Uncomment the next line to enable the admin:
-    # url(r'^admin/', include(admin.site.urls)),
+    url(r'^admin/', include(admin.site.urls)),
 )

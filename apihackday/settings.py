@@ -59,7 +59,7 @@ STATICFILES_DIRS = (
     os.path.join(PROJECT_DIR, 'static'),
     )
 
-# URL prefix for admin static files -- CSS, JavaScript and images.
+# URL prefix for admin static files -- css, JavaScript and images.
 # Make sure to use a trailing slash.
 # Examples: "http://foo.com/static/admin/", "/static/admin/".
 ADMIN_MEDIA_PREFIX = '/static/admin/'
@@ -110,14 +110,13 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    # Uncomment the next line to enable the admin:
-    # 'django.contrib.admin',
-    # Uncomment the next line to enable admin documentation:
-    # 'django.contrib.admindocs',
+
+    'django.contrib.admin',
+    'django.contrib.admindocs',
     'bolao',
     'social_auth',
     'tastypie',
-
+    'south',
 )
 
 
@@ -145,10 +144,12 @@ AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',
 )
 
-#FACEBOOK_APP_ID = ''
-#FACEBOOK_API_SECRET = ''
+FACEBOOK_APP_ID = environ.get("FB_APP_ID", "")
+FACEBOOK_API_SECRET = environ.get("FB_APP_KEY", "")
 
 TEMPLATE_CONTEXT_PROCESSORS = (
+    'django.contrib.messages.context_processors.messages',
+    'django.contrib.auth.context_processors.auth',
     'social_auth.context_processors.social_auth_by_type_backends',
 )
 

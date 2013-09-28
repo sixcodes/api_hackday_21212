@@ -1,4 +1,5 @@
 *.py[cod]
+collect/
 
 # C extensions
 *.so
@@ -38,3 +39,4 @@ nosetests.xml
 *.sw[po]
 *~
 .env
+apihackday/collect/
