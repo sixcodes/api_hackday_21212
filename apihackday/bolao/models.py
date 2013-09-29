@@ -32,12 +32,12 @@ class Aposta(models.Model):
 def bolao_encerrado(sender, **kwargs):
     bolao = kwargs["instance"]
     if bolao.encerrado:
-        context = {"titulo_bolao": bolao.titulo, "link_resultado_bolao": "http://localhost:8000/api/v1/bolao/{}".format(bolao.id)}
+        context = {"titulo_bolao": bolao.titulo, "link_resultado_bolao": "http://localhost:8000/bolao/{}".format(bolao.id)}
         vencedores = []
         to = []
         for aposta in bolao.apostas.all():
             aposta.status_aposta = False
-            if aposta.valor_time_1 == bolao.resultado_time_1 and aposta.valor_time_2 == bolao.resultado_time_2:
+            if str(aposta.valor_time_1) == str(bolao.resultado_time_1) and str(aposta.valor_time_2) == str(bolao.resultado_time_2):
                 aposta.status_aposta = True
                 vencedores.append(aposta.owner.get_full_name())
 
