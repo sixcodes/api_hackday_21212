@@ -45,7 +45,7 @@ class BolaoResource(ModelResource):
     def get_object_list(self, request):
         user = request.user
         if user.is_authenticated():
-            return (user.participa_em.all() | Bolao.objects.filter(admin=user)).distinct()
+            return (user.participa_em.all().filter(titulo__isnull=False).exclude(titulo='') | Bolao.objects.filter(admin=user).filter(titulo__isnull=False).exclude(titulo='') | Bolao.objects.filter(titulo__isnull=False).exclude(titulo='')).distinct()
 
     def obj_create(self, bundle, **kwargs):
         return super(BolaoResource, self).obj_create(bundle, admin=bundle.request.user)
