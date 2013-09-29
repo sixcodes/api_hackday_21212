@@ -94,7 +94,7 @@ def convidarBolao(r, bolao_id=None):
             bolao.participantes.add(User.objects.get(email=u))
         sendmail(u'Convite para participar do bolao', users, 'mail/novo-bolao.html', category='Convite', bolao_id=bolao.id)
 
-        return render_to_response('convidar.html', context_instance=RequestContext(r))
+        return HttpResponseRedirect('/bolao/')
     else:
         bolao = Bolao.objects.get(id=bolao_id)
         data = {'b': bolao }
