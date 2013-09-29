@@ -103,7 +103,14 @@ def convidarBolao(r, bolao_id=None):
         return render_to_response('convidar.html', data, context_instance=RequestContext(r))
 
 def criarUsuario(r):
-    return render_to_response('form-criar-usuario.html', context_instance=RequestContext(r))
+    if r.POST:
+        username = r.POST.get('username', None)
+        password = r.POST.get('password', None)
+        email = r.POST.get('email', None)
+        new_user = User.objects.create_user(username, password,email)
+        return HttpResponseRedirect('/')
+    else:
+        return render_to_response('form-criar-usuario.html', context_instance=RequestContext(r))
 
 @login_required
 def finalizarBolao(r):

@@ -5,11 +5,12 @@
 
 <h1>Criar Usuario</h1>
 <br>
-    <form  id="bolao-form">
+    <form  method="POST" action="{% url 'criarUsuario' %}" id="bolao-form">
         {% csrf_token %}
-        <input type="text" id="id_titulo" name="id_titulo" value="" placeholder="login" class="form-control">
-        <input type="password" id="id_time1" name="id_time1" value="" placeholder="senha" class="form-control">
-        <a href="#" class="btn btn-lg btn-primary js_save_bolao">Cadastrar</a>
+        <input type="text" id="id_titulo" name="username" value="" placeholder="login" class="form-control">
+        <input type="text" id="id_titulo" name="email" value="" placeholder="E-Mail" class="form-control">
+        <input type="password" id="id_time1" name="password" value="" placeholder="senha" class="form-control">
+            <button class="btn btn-lg btn-block btn-primary js_save_bolao" type="submit">Cadastrar</button>
     </form>
 
     </div>
