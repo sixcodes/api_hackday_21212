@@ -42,4 +42,4 @@ class BolaoResource(ModelResource):
     def get_object_list(self, request):
         user = request.user
         if user.is_authenticated():
-            return user.participa_em.all()
+            return (user.participa_em.all() | Bolao.objects.filter(admin=user)).distinct()
