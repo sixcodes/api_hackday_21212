@@ -40,15 +40,26 @@
 <div class="navbar-fixed-top">
     <div class="container-top">
         <div class="navbar-header">
-            <a class="navbar-brand" href="{% url "home" %}">Zezaz</a>
+            <a class="navbar-brand text-white" href="{% url "home" %}">Zezaz</a>
         </div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="{% url "listarbolao" %}">Meus Bolões</a></li>
-                <li><a href="{% url "criarbolao" %}">Criar Bolão</a></li>
+                <li class="active "><a href="{% url "listarbolao" %}" class="text-white">Meus Bolões</a></li>
+                <li><a href="{% url "criarbolao" %}" class="text-white">Criar Bolão</a></li>
             </ul>
             <div class="navbar-form navbar-right">
                <a class="btn btn-success btn-text-black" href="{% url "login" %}">Login</a>
+            </div>
+            <div class="navbar-form navbar-right">
+                <span class="btn btn-lg btn-inverse">
+                    Olá Fulano, crie seu
+                </span>
+                <a class="btn btn-success btn-text-black" href="{% url "criarbolao" %}">
+                    bolão
+                </a>
+                <span class="btn btn-lg btn-inverse">
+                    agora!
+                </span>
             </div>
         </div>
     </div>

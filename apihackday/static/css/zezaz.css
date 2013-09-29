@@ -47,6 +47,10 @@ body {
     background-color: #eee;
 }
 
+.text-white {
+    color: #ffffff;
+}
+
 .btn-text-black {
     color: #000;
 }
