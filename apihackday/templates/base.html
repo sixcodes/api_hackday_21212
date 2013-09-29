@@ -40,16 +40,22 @@
 <div class="navbar-fixed-top">
     <div class="container-top">
         <div class="navbar-header">
-            <a class="navbar-brand text-white" href="{% url "home" %}">Zezaz</a>
+            <a class="navbar-brand text-white" href="{% url "home" %}">Vem pro Bolão</a>
         </div>
     {% block menu %}
     {% endblock %}
-                <div class="navbar-form navbar-right">
-               <a class="btn btn-success btn-text-black" href="{% url "login" %}">Login</a>
+            {% if not user.is_authenticated %}
+            <div class="navbar-form navbar-right">
+               <a class="btn btn-success btn-text-black" href="{% url "login" %}">Entrar</a>
             </div>
+            {% else %}
+                <div class="navbar-form navbar-right">
+               <a class="btn btn-success btn-text-black" href="{% url "logout" %}">Sair</a>
+            </div>
+            {% endif %}
             <div class="navbar-form navbar-right">
                 <span class="btn btn-lg btn-inverse">
-                    Olá Fulano, crie seu
+                    Olá {{ user.get_full_name }}, crie seu
                 </span>
                 <a class="btn btn-success btn-text-black" href="{% url "criarbolao" %}">
                     bolão
