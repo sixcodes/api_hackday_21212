@@ -36,12 +36,13 @@
                 <div class="col-lg-4">
                     <h4><%= bolao.time_2 %></h4>
           </div>
-
             <div class="col-lg-13 text-center" style="margin-top:10px;padding-top: 110px;padding-bottom: 10px;padding-right: 80px;">
                 <a href="http://localhost:8000/bolao/exibir/?id=<%= bolao.id %>" class="btn btn-info">Ver</a>
+            <% if((_.isEmpty(bolao.resultado_time_1) && _.isNull(bolao.resultado_time_1))){ %>
                 <a href="http://localhost:8000/convidar/<%= bolao.id %>" class="btn btn-warning">Convidar</a>
                 <a href="{% url 'apostarbolao' %}?id=<%= bolao.id %>" class="btn btn-success">Apostar</a>
                 <a href="{% url 'finalizarbolao' %}?id=<%= bolao.id %>" class="btn btn-danger">Finalizar</a>
+            <% } %>
             </div>
           </div>
         </div>
