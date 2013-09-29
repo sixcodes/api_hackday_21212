@@ -89,7 +89,23 @@ def convidarBolao(r):
 
 @login_required
 def finalizarBolao(r):
-    return render_to_response('form-resultado-bolao.html', context_instance=RequestContext(r))
+    if r.POST:
+        id_bolao = r.POST.get('id', None)
+        meu_bolao = Bolao.objects.get(id=id_bolao)
+        valor_time_1 = r.POST.get('valor_time_1', None)
+        valor_time_2 = r.POST.get('valor_time_2', None)
+        Aposta.objects.create(bolao=meu_bolao, valor_time_1=valor_time_1, valor_time_2=valor_time_2, owner_id=r.POST['owner_id'])
+        return render_to_response('form-resultado-bolao.html', context_instance=RequestContext(r))
+    else:
+        id_bolao = r.GET.get('id', None)
+        meu_bolao = Bolao.objects.get(id=id_bolao)
+
+        dict = {}
+        dict['titulo'] = meu_bolao.titulo
+        dict['time_1'] = meu_bolao.time_1
+        dict['time_2'] = meu_bolao.time_2
+
+        return render_to_response('form-resultado-bolao.html', dict, context_instance=RequestContext(r))
 
 @login_required
 def convidarBolao(r):
