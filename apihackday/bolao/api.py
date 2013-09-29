@@ -10,8 +10,8 @@ default_authorization = DjangoAuthorization()
 default_authentication = SessionAuthentication()
 
 # Comente essas linhas para ligar a autenticaçao/permissoes
-#default_authentication = Authentication()
-#default_authorization = Authorization()
+default_authentication = Authentication()
+default_authorization = Authorization()
 
 
 class ApostadorResource(ModelResource):
