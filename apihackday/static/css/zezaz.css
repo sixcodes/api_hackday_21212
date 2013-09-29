@@ -1,3 +1,16 @@
+.form-login {
+    max-width: 550px;
+    padding: 15px;
+    margin: 0 auto;
+
+}
+
+.form-bolao {
+    max-width: 600px;
+    padding: 15px;
+    margin: 0 auto;
+}
+
 .nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus{
     /*background-color: #2ecc71;*/
     background-color: #5b7995;
@@ -34,13 +47,18 @@ body {
     background-color: #fff;
 }
 
+.text-white {
+    color: #ffffff;
+}
+
 .btn-text-black {
     color: #000;
 }
 
 .jumbotron {
     background-color: #dedede;
-    margin-top: 90px;
+    margin-top: 40px;
+    margin-bottom: -20px;
 }
 
 .full-container {

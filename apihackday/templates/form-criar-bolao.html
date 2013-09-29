@@ -1,11 +1,16 @@
-{% extends 'base.html' %}
+{% extends 'menu.html' %}
 {% load staticfiles %}
 {% block container %}
+    <div class="form-bolao">
+
 <h1><img src="{% static 'img/clipboard.svg' %}" alt="Calendar"> Criar Bolão</h1>
 <br>
     <form action="javascript:void(0);" id="criar-bolao">
         <input type="text" value="" placeholder="Titulo do Bolão" class="form-control">
         <input type="text" value="" placeholder="Nome do Time 1" class="form-control">
         <input type="text" value="" placeholder="Nome do Time 2" class="form-control">
+        <a href="#fakelink" class="btn btn-lg btn-primary">Salvar</a>
     </form>
+
+    </div>
 {% endblock %}

@@ -11,6 +11,11 @@ class Bolao(models.Model):
     admin = models.ForeignKey(User)
     encerrado = models.BooleanField(default=False)
 
+    def __repr__(self):
+        return self.titulo
+
+    __unicode__ = __repr__
+
 
 class Aposta(models.Model):
     bolao = models.ForeignKey(Bolao, related_name='apostas')

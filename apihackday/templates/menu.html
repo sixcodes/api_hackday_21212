@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block menu %}
+{% if user.is_authenticated %}
+
+
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="{% url "listarbolao" %}">Meus Bolões</a></li>
+                <li><a href="{% url "criarbolao" %}">Criar Bolão</a></li>
+            </ul>
+
+        </div>
+ {% endif %}
+{% endblock %}

@@ -1,34 +1,26 @@
-{% extends 'base.html' %}
-{% block header %} {% endblock %}
+{% extends "menu.html" %}
 
-{% block content %}
+{% block container %}
 
-<div id="login-page">
-    <div id="login-holder">
+{% if form.errors %}
+<p>Your username and password didn't match. Please try again.</p>
+{% endif %}
 
-            <span id="logo-big"></span>
-            <h1>Entre com seu login:</h1>
+<form method="post" action="{% url 'login' %}">
+{% csrf_token %}
+<table>
+<tr>
+    <td>{{ form.username.label_tag }}</td>
+    <td>{{ form.username }}</td>
+</tr>
+<tr>
+    <td>{{ form.password.label_tag }}</td>
+    <td>{{ form.password }}</td>
+</tr>
+</table>
 
-            {% if form.errors %}
-                <h4 class="jobs-feedback-error">Login e senha incorretos</h4>
-            {% endif %}
+<input type="submit" value="login" />
+<input type="hidden" name="next" value="{{ next }}" />
+</form>
 
-            <form action="{% url login %}" method="post">
-                {% csrf_token %}
-
-                <input id="id_username" type="text" name="username" maxlength="30" placeholder="Seu email"/>
-                <input id="id_password" type="password" name="password" placeholder="Sua senha"/>
-
-                <div class="login-actions">
-                    <a href="" class="forget-psw">Bom trabalho!</a>
-                    <button type="submit" class="ok-btn">Entrar</button>
-                    <b class="clear"></b>
-                </div>
-
-            </form>
-    </div>
-</div>
-
- {% endblock %}
-
-{% block footer %} {% endblock %}
+{% endblock %}
