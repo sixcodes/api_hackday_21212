@@ -11,3 +11,6 @@ def listarBolao(r):
 
 def criarBolao(r):
     return render_to_response('form-criar-bolao.html', context_instance=RequestContext(r))
+
+def exibirBolao(r):
+    return render_to_response('listar-bolao.html', context_instance=RequestContext(r))
