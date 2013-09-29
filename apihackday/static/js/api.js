@@ -1,6 +1,6 @@
 
 $(document).ready(function(e){
-    function todosBoloes(){
+
         boloes = {
             "Bolao":
             {
@@ -37,9 +37,9 @@ $(document).ready(function(e){
         };
 
         var template = _.template($("#listar-boloes").html());
-        $('#panel-group').html(template({'bolao': boloes}));
+        $('#listar-render').html({'boloes': boloes});
 
-    }
+
 });
 
 listarBoloes = function(data){
