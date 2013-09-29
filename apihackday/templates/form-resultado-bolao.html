@@ -4,32 +4,40 @@
     <div id="bolao-render"></div>
     <h1 class="text-center">{{ titulo }}</h1>
     <br>
-    <form  id="bolao-form">
+    {% if titulo %}
+    <form method="POST" action="{% url 'finalizarbolao' %}" id="bolao-form">
+        {% csrf_token %}
         <div class="col-lg-12 text-center placar">
+            <input name="id" type="hidden" value="" class="js_id">
+            <input name="owner_id" type="hidden" value="{{ user.id }}">
             <div class="col-lg-4">
                 <h4>{{ time_1 }}</h4>
             </div>
             <div class="col-lg-1">
-                <input type="text" id="id_time1" name="valor_time1" value="" placeholder="" class="form-control">
+                <input type="text" id="id_time1" name="valor_time_1" value="" placeholder="" class="form-control">
             </div>
             <div class="col-lg-1">
                 <h2>x</h2>
             </div>
             <div class="col-lg-1">
-                <input type="text" id="id_time1" name="valor_time2" value="" placeholder="" class="form-control">
+                <input type="text" id="id_time1" name="valor_time_2" value="" placeholder="" class="form-control">
             </div>
             <div class="col-lg-4">
                 <h4>{{ time_2 }}</h4>
             </div>
         </div>
         <div class="col-lg-12 text-center">
-            <a href="#" class="btn btn-lg btn-block btn-primary js_save_bolao">Finalizar</a>
+            <button class="btn btn-lg btn-block btn-danger js_save_bolao" type="submit">Finalizar Bolao</button>
         </div>
         <br/><br/>
-        <div class="col-lg-12 text-center">
-            <h1 class="label label-success">Bolao Salvo!</h1>
-            <h3 class="label label-danger">Deu erro!</h3>
-        </div>
     </form>
-
+    {% else %}
+        <div class="col-lg-12 text-center">
+            <h1 class="btn btn-success">Bolao Finalizado! Veja seu e-mail!</h1>
+        </div>
+    {% endif %}
+<script type="text/javascript">
+    var id = document.location.search;
+    $('.js_id').val(id.split('=')[1]);
+</script>
 {% endblock %}
