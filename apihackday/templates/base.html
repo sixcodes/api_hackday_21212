@@ -42,15 +42,11 @@
         <div class="navbar-header">
             <a class="navbar-brand" href="{% url "home" %}">Zezaz</a>
         </div>
-        <div class="navbar-collapse collapse">
-            <ul class="nav navbar-nav">
-                <li class="active"><a href="{% url "listarbolao" %}">Meus Bolões</a></li>
-                <li><a href="{% url "criarbolao" %}">Criar Bolão</a></li>
-            </ul>
-            <div class="navbar-form navbar-right">
+    {% block menu %}
+    {% endblock %}
+                <div class="navbar-form navbar-right">
                <a class="btn btn-success btn-text-black" href="{% url "login" %}">Login</a>
             </div>
-        </div>
     </div>
 </div>
 <div class="container">

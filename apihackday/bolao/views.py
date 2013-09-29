@@ -3,6 +3,7 @@ import urlparse
 from django.contrib.auth import REDIRECT_FIELD_NAME, logout as auth_logout
 from django.conf import settings
 from django.contrib.auth import user_logged_in, BACKEND_SESSION_KEY, SESSION_KEY, REDIRECT_FIELD_NAME
+from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.sites.models import get_current_site
 from django.http import HttpResponseRedirect
@@ -18,12 +19,16 @@ from django.views.decorators.debug import sensitive_post_parameters
 def home(r):
     return render_to_response('home.html', context_instance=RequestContext(r))
 
+@login_required
 def listarBolao(r):
     return render_to_response('listar-bolao.html', context_instance=RequestContext(r))
 
+@login_required
 def criarBolao(r):
+    print r.user
     return render_to_response('form-criar-bolao.html', context_instance=RequestContext(r))
 
+@login_required
 def exibirBolao(r):
     return render_to_response('exibir-bolao.html', context_instance=RequestContext(r))
 
@@ -114,7 +119,7 @@ def logout(request, next_page=None,
     context = {
         'site': current_site,
         'site_name': current_site.name,
-        'title': _('Logged out')
+        'title': ('Logged out')
     }
     if extra_context is not None:
         context.update(extra_context)
