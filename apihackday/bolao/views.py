@@ -107,7 +107,7 @@ def criarUsuario(r):
         username = r.POST.get('username', None)
         password = r.POST.get('password', None)
         email = r.POST.get('email', None)
-        new_user = User.objects.create_user(username, password,email)
+        new_user = User.objects.create_user(username, password=password, email=email)
         return HttpResponseRedirect('/')
     else:
         return render_to_response('form-criar-usuario.html', context_instance=RequestContext(r))
