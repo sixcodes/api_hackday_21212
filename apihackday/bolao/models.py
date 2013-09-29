@@ -47,3 +47,20 @@ def bolao_encerrado(sender, **kwargs):
         context["vencedores"] = vencedores
         print context
         sendmail("Resultado do Bolao: {}".format(bolao.titulo), to, "mail/result-win.html", category="resultado", **context)
+
+
+@receiver(models.signals.post_save, sender=Aposta)
+def nova_aposta(sender, **kwargs):
+
+    if not kwargs["created"]:
+        return
+
+    aposta = kwargs['instance']
+    bolao = aposta.bolao
+    context = {"time_1": bolao.time_1, "valor_1": aposta.valor_time_1,
+               "time_2": bolao.time_2, "valor_2": aposta.valor_time_2,
+               "apostador": aposta.owner.get_full_name(), "link_bolao": "http://localhost:8000/bolao/{}".format(bolao.id)}
+
+    to = [aposta.owner.email for aposta in bolao.apostas.all()]
+    print "to=", to
+    sendmail("Nova Aposta: Bolao {}".format(bolao.titulo), to, "mail/nova-aposta.html", category="nova-aposta", **context)

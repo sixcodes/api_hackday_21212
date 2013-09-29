@@ -5,6 +5,12 @@ from os import environ
 
 
 def sendmail(subject, to, template, category='alert', **kwargs):
+
+    if not environ.get("ENVIA", False):
+        print "nao enviando email"
+        return
+
+    print "enviando email"
     # make a secure connection to SendGrid
     s = sendgrid.Sendgrid(environ.get("SENDGRID_USER"), environ.get("SENDGRID_PWD"), secure=True)
 
