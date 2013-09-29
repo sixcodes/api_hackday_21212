@@ -36,7 +36,7 @@
             <div class="col-lg-13 text-center" style="margin-top:10px;">
                 <a href="http://localhost:8000/bolao/exibir/?id=<%= bolao.id %>" class="btn btn-info">Ver</a>
                 <a href="{% url 'apostarbolao' %}?id=<%= bolao.id %>" class="btn btn-success">Apostar</a>
-                <a href="{% url 'finalizarbolao' %}?id= %>" class="btn btn-danger">Finalizar</a>
+                <a href="{% url 'finalizarbolao' %}?id=<%= bolao.id %>" class="btn btn-danger">Finalizar</a>
             </div>
           </div>
         </div>
