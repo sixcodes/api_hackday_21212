@@ -40,11 +40,11 @@
 
 .navbar-fixed-top {
     font-size: 17px;
-    background-color: #34495e;
+    background-color: #195F40;
 }
 
 body {
-    background-color: #eee;
+    background-color: #fff;
 }
 
 .text-white {
@@ -86,7 +86,7 @@ body {
     left: 0px;
     margin-top: 3px;
     margin-bottom: 20px;
-    background-color: #34495e;
+    background-color: #195F40;
     padding-top: 15px;
     padding-bottom: 15px;
     color: #BDC3C7;
