@@ -1,3 +1,12 @@
+.navbar-brand {
+    padding-left: 130px;
+}
+
+.container {
+    padding: 30px;
+    padding-top: 100px;
+}
+
 .placar {
     margin-bottom: 100px;
     line-height:150px;
