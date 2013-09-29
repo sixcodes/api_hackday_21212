@@ -52,6 +52,9 @@ def bolao_encerrado(sender, **kwargs):
 @receiver(models.signals.post_save, sender=Aposta)
 def nova_aposta(sender, **kwargs):
 
+    if not kwargs["created"]:
+        return
+
     aposta = kwargs['instance']
     bolao = aposta.bolao
     context = {"time_1": bolao.time_1, "valor_1": aposta.valor_time_1,
