@@ -15,7 +15,8 @@ def sendmail(subject, to, template, category='alert', **kwargs):
     message = sendgrid.Message("bolao@bolao.daltonmatos.com", subject, "", unicode(body).encode("utf-8"))
 
     # add a recipient
-    message.add_to(to)
+    for recipient in to:
+        message.add_to(recipient)
 
     message.add_category(category)
     # use the Web API to send your message
