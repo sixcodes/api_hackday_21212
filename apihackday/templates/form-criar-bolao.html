@@ -1,0 +1,17 @@
+{% extends 'menu.html' %}
+{% load staticfiles %}
+{% block container %}
+    <div class="form-bolao">
+
+<h1><img src="{% static 'img/clipboard.svg' %}" alt="Calendar"> Criar Bolão</h1>
+<br>
+    <form  id="bolao-form">
+        {% csrf_token %}
+        <input type="text" id="id_titulo" name="id_titulo" value="" placeholder="Titulo do Bolão" class="form-control">
+        <input type="text" id="id_time1" name="id_time1" value="" placeholder="Nome do Time 1" class="form-control">
+        <input type="text" id="id_time2" name="id_time2" value="" placeholder="Nome do Time 2" class="form-control">
+        <a href="#" class="btn btn-lg btn-primary js_save_bolao">Salvar</a>
+    </form>
+
+    </div>
+{% endblock %}

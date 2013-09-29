@@ -1,0 +1,43 @@
+{% extends 'menu.html' %}
+
+{% block container %}
+    <div id="bolao-render"></div>
+    <h1 class="text-center">{{ titulo }}</h1>
+    <br>
+    {% if titulo %}
+    <form method="POST" action="{% url 'apostarbolao' %}" id="bolao-form">
+        {% csrf_token %}
+        <div class="col-lg-12 text-center placar">
+            <input name="id" type="hidden" value="" class="js_id">
+            <input name="owner_id" type="hidden" value="{{ user.id }}">
+            <div class="col-lg-4">
+                <h4>{{ time_1 }}</h4>
+            </div>
+            <div class="col-lg-1">
+                <input type="text" id="id_time1" name="valor_time_1" value="" placeholder="" class="form-control">
+            </div>
+            <div class="col-lg-1">
+                <h2>x</h2>
+            </div>
+            <div class="col-lg-1">
+                <input type="text" id="id_time1" name="valor_time_2" value="" placeholder="" class="form-control">
+            </div>
+            <div class="col-lg-4">
+                <h4>{{ time_2 }}</h4>
+            </div>
+        </div>
+        <div class="col-lg-12 text-center">
+            <button class="btn btn-lg btn-block btn-primary js_save_bolao" type="submit">Apostar</button>
+        </div>
+        <br/><br/>
+    </form>
+    {% else %}
+        <div class="col-lg-12 text-center">
+            <h1 class="btn btn-success">Aposta Salva!</h1>
+        </div>
+    {% endif %}
+<script type="text/javascript">
+    var id = document.location.search;
+    $('.js_id').val(id.split('=')[1]);
+</script>
+{% endblock %}

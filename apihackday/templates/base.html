@@ -3,8 +3,24 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Zezaz - improving your github experience</title>
+    <title>Bol&atilde;o!</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Load JS here for greater good =============================-->
+    <script src="{% static 'js/jquery-1.8.3.min.js' %}"></script>
+    <script src="{% static 'js/jquery-ui-1.10.3.custom.min.js' %}"></script>
+    <script src="{% static 'js/jquery.ui.touch-punch.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap-select.js' %}"></script>
+    <script src="{% static 'js/bootstrap-switch.js' %}"></script>
+    <script src="{% static 'js/flatui-checkbox.js' %}"></script>
+    <script src="{% static 'js/flatui-radio.js' %}"></script>
+    <script src="{% static 'js/jquery.tagsinput.js' %}"></script>
+    <script src="{% static 'js/jquery.placeholder.js' %}"></script>
+    <script src="{% static 'js/jquery.stacktable.js' %}"></script>
+    <script src="{% static 'js/application.js' %}"></script>
+    <script src="{% static 'js/underscore-min.js' %}"></script>
+    <script src="{% static 'js/api.js' %}"></script>
 
     <!-- Loading Bootstrap -->
     <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
@@ -22,106 +38,59 @@
 </head>
 <body>
 <div class="navbar-fixed-top">
-    <div class="container">
+    <div class="container-top">
         <div class="navbar-header">
-            <a class="navbar-brand" href="#">Zezaz</a>
+            <a class="navbar-brand text-white" href="{% url "home" %}">Vem pro Bolão</a>
         </div>
-        <div class="navbar-collapse collapse">
-            <ul class="nav navbar-nav">
-                <li class="active"><a href="#">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#contact">Team</a></li>
-            </ul>
-            <div class="navbar-form navbar-right">
-                <button type="submit" class="btn btn-success btn-text-black"> Loggin with GitHub <img src="images/zezaz/GitHub-Mark-32px.png" width="20px"/></button>
-            </div>
-        </div>
+    {% block menu %}
+    {% endblock %}
     </div>
 </div>
-    <div class="container">
-        <div class="jumbotron">
-            <h1>Zezaz! <i><span class="lead">improving your github experience!</span></i></h1>
+<div class="container">
+{% block container %}
+{% endblock %}
+</div>
 
-            <p class="lead">Acompanhe seus amigos, colabore em projetos e siga projetos que irá gostar!</p>
-            <p><a class="btn btn-lg btn-success" href="#">Get started today <span class="glyphicon glyphicon-chevron-right"></span></i></a></p>
-        </div>
-        <hr>
-    </div>
-<div class="full-container">
-    <div class="container">
-        <div class="row text-center" >
-            <div class="col-lg-4">
-                <h3>Acompanhe</h3>
-                <p>Descubra novos amigos que você conhece mas ainda não segue.</p>
-                <p class="text-right"><a class="btn btn-sm btn-primary" href="#">View details &raquo;</a></p>
-            </div>
-            <div class="col-lg-4">
-                <h3>Colabore</h3>
-                <p>Ajude em projetos que seus amigos também participaram</p>
-                <p class="text-right"><a class="btn btn-sm btn-primary" href="#">View details &raquo;</a></p>
-            </div>
-            <div class="col-lg-4">
-                <h3>Siga</h3>
-                <p>Descubra novos projetos que possivelmente você irá gostar</p>
-                <p class="text-right"><a class="btn btn-sm btn-primary" href="#">View details &raquo;</a></p>
-            </div>
-        </div>
-    </div>
-</div>
 <div class="full-container-team-header">
-    <h6>Team:</h6>
+    <h6>Time:</h6>
 </div>
 <div class="full-container-team">
     <div class="container">
         <div class="row text-center">
-            <div class="col-lg-4">
+            <div class="col-lg-3">
                 <img class="img-circle img-thumb"
-                     src="https://2.gravatar.com/avatar/8f8d53501d40286f6a2f228326926909"
+                     src="https://0.gravatar.com/avatar/ccebda0b938cf206e73b94ea526f5abe"
                      data-src="holder.js/100x100" alt="100x100">
-                <h4>cesarFrias</h4>
-                <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis</p>
+                <h4>Bruno Melo</h4>
+                <p>@brunousml</p>
                 <p class="text-right"><a class="btn btn-sm btn-primary" href="#">View details &raquo;</a></p>
             </div>
-            <div class="col-lg-4">
+            <div class="col-lg-3">
                 <img class="img-circle img-thumb"
-                     src="https://2.gravatar.com/avatar/467d5a76b07519c0f0678cb8218e9b45"
+                     src="https://0.gravatar.com/avatar/b12e40fbc46262db7d075593811ed974"
                      data-src="holder.js/100x100" alt="100x100">
-                <h4>ebertti</h4>
-                <p>Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.</p>
+                <h4>Dalton Barreto</h4>
+                <p>@daltonmatos</p>
                 <p class="text-right"><a class="btn btn-sm btn-primary" href="#">View details &raquo;</a></p>
             </div>
-            <div class="col-lg-4">
+            <div class="col-lg-3">
+                <img class="img-circle img-thumb"
+                     src="https://1.gravatar.com/avatar/43bc44ff37ac20efcae477ce105ee20f"
+                     data-src="holder.js/100x100" alt="100x100">
+                <h4>Jesué Junior</h4>
+                <p>@jesuejunior</p>
+                <p class="text-right"><a class="btn btn-sm btn-primary" href="#">View details &raquo;</a></p>
+            </div>
+            <div class="col-lg-3">
                 <img class="img-circle img-thumb"
                      src="https://1.gravatar.com/avatar/59bd0447c07625a205b1a5a2ea0434aa"
                      data-src="holder.js/100x100" alt="100x100">
-                <h4>joaoleite</h4>
-                <p>Semper. Fusce dapibus, tellus ac cursus commodo, tortor</p>
+                <h4>João Leite</h4>
+                <p>@joaoleite</p>
                 <p class="text-right"><a class="btn btn-sm btn-primary" href="#">View details &raquo;</a></p>
             </div>
         </div>
     </div>
 </div>
-<div class="container">
-
-    <div class="footer">
-        <p>&copy; Amazing Works 2013</p>
-    </div>
-</div>
-<!-- /container -->
-
-
-<!-- Load JS here for greater good =============================-->
-<script src="{% static 'js/jquery-1.8.3.min.js' %}"></script>
-<script src="{% static 'js/jquery-ui-1.10.3.custom.min.js' %}"></script>
-<script src="{% static 'js/jquery.ui.touch-punch.min.js' %}"></script>
-<script src="{% static 'js/bootstrap.min.js' %}"></script>
-<script src="{% static 'js/bootstrap-select.js' %}"></script>
-<script src="{% static 'js/bootstrap-switch.js' %}"></script>
-<script src="{% static 'js/flatui-checkbox.js' %}"></script>
-<script src="{% static 'js/flatui-radio.js' %}"></script>
-<script src="{% static 'js/jquery.tagsinput.js' %}"></script>
-<script src="{% static 'js/jquery.placeholder.js' %}"></script>
-<script src="{% static 'js/jquery.stacktable.js' %}"></script>
-<script src="{% static 'js/application.js' %}"></script>
 </body>
 </html>

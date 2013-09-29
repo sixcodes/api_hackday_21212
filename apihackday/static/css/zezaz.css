@@ -1,3 +1,35 @@
+.form-login {
+    max-width: 550px;
+    padding: 15px;
+    margin: 0 auto;
+
+}
+
+.form-bolao {
+    max-width: 600px;
+    padding: 15px;
+    margin: 0 auto;
+}
+
+.nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus{
+    /*background-color: #2ecc71;*/
+    background-color: #5b7995;
+}
+
+.navbar-brand {
+    padding-left: 130px;
+}
+
+.container {
+    padding: 30px;
+    padding-top: 100px;
+}
+
+.placar {
+    margin-bottom: 100px;
+    line-height:150px;
+}
+
 .tooltip {
     display: block;
 }
@@ -8,11 +40,15 @@
 
 .navbar-fixed-top {
     font-size: 17px;
-    background-color: #34495e;
+    background-color: #195F40;
 }
 
 body {
-    background-color: #eee;
+    background-color: #fff;
+}
+
+.text-white {
+    color: #ffffff;
 }
 
 .btn-text-black {
@@ -21,7 +57,8 @@ body {
 
 .jumbotron {
     background-color: #dedede;
-    margin-top: 90px;
+    margin-top: 40px;
+    margin-bottom: -20px;
 }
 
 .full-container {
@@ -49,7 +86,7 @@ body {
     left: 0px;
     margin-top: 3px;
     margin-bottom: 20px;
-    background-color: #34495e;
+    background-color: #195F40;
     padding-top: 15px;
     padding-bottom: 15px;
     color: #BDC3C7;

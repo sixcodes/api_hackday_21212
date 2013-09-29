@@ -10,7 +10,7 @@ TEMPLATE_DEBUG = DEBUG
 ADMINS = (
     ('Dalton Barreto', 'daltonmatos@gmail.com'),
     ('Jesue Junior', 'jesuesousa@gmail.com'),
-    ('Bruno Melo', 'your_email@example.com'),
+    ('Bruno Melo', 'brunousml@gmail.com'),
 )
 
 MANAGERS = ADMINS
@@ -49,6 +49,9 @@ USE_I18N = True
 # calendars according to the current locale
 USE_L10N = True
 
+
+LOGIN_URL = '/'
+LOGIN_REDIRECT_URL = '/bolao/'
 
 # Organização de arquivos estáticos
 MEDIA_ROOT = os.path.join(PROJECT_DIR, 'media/')
@@ -114,7 +117,6 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     'django.contrib.admindocs',
     'bolao',
-    'social_auth',
     'tastypie',
     'south',
 )
@@ -150,7 +152,6 @@ FACEBOOK_API_SECRET = environ.get("FB_APP_KEY", "")
 TEMPLATE_CONTEXT_PROCESSORS = (
     'django.contrib.messages.context_processors.messages',
     'django.contrib.auth.context_processors.auth',
-    'social_auth.context_processors.social_auth_by_type_backends',
 )
 
 # A sample logging configuration. The only tangible logging
@@ -175,3 +176,5 @@ LOGGING = {
         },
     }
 }
+
+TASTYPIE_DEFAULT_FORMATS = ['json',]

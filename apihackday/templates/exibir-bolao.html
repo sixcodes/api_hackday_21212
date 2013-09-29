@@ -1,0 +1,59 @@
+{% extends 'menu.html' %}
+
+{% block container %}
+    <h1 class="text-center">Bolão APIHACKDAY</h1>
+
+    <div id="bolao-render"></div>
+    <br>
+    <div class="col-lg-12 text-center placar">
+        <div class="col-lg-4">
+            <h4>{{ time_1 }}</h4>
+        </div>
+        <div class="col-lg-1">
+            <h4>{{ resultado_time_1 }}</h4>
+        </div>
+        <div class="col-lg-1">
+            <h2>x</h2>
+        </div>
+        <div class="col-lg-1">
+            <h4>{{ resultado_time_2 }}</h4>
+        </div>
+        <div class="col-lg-4">
+            <h4>{{ time_2 }}</h4>
+        </div>
+    </div>
+    <div class="col-lg-12">
+      <h4>Apostadores:</h4>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Apostador</th>
+            <th>Time #1</th>
+            <th>Time #2</th>
+            <th>Ganhou?</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Mark</td>
+            <td>1</td>
+            <td>0</td>
+            <td><span class="glyphicon glyphicon-remove"></span></td>
+          </tr>
+          <tr>
+            <td>Jacob</td>
+            <td>0</td>
+            <td>1</td>
+            <td><span class="glyphicon glyphicon-remove"></span></td>
+          </tr>
+          <tr>
+            <td>Larry</td>
+            <td>1</td>
+            <td>1</td>
+            <td><span class="glyphicon glyphicon-ok"></span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+</script>
+{% endblock %}
