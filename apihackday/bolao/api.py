@@ -41,6 +41,7 @@ class BolaoResource(ModelResource):
         queryset = Bolao.objects.all()
         authorization = default_authorization
         authentication = default_authentication
+        always_return_data = True
 
     def get_object_list(self, request):
         user = request.user
