@@ -41,6 +41,10 @@
     <div class="container-top">
         <div class="navbar-header">
             <a class="navbar-brand text-white" href="{% url "home" %}">Vem pro Bolão</a>
+
+        </div>
+        <div class="navbar-form navbar-right">
+           <a class="btn btn-success btn-text-black" href="{% url "login" %}">Entrar</a>
         </div>
     {% block menu %}
     {% endblock %}
