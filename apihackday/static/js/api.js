@@ -41,8 +41,9 @@ saveBolao = function(e){
         dataType: 'json',
         data: formData,
         success: function(data){
+            console.log(data);
             alert('O bolão foi criado com sucesso. Convide seus amigos.');
-            window.location = "/convidar"
+            window.location = "/convidar/" + data['id'];
             return false;
         }
     });
