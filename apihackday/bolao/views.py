@@ -93,7 +93,7 @@ def convidarBolao(r, bolao_id=None):
         for u in users:
             bolao.participantes.add(User.objects.get(email=u))
 
-        context = {"bolao_id":bolao.id, "criador":bolao.owner.get_full_name ,  "titulo_bolao": bolao.titulo, "link_resultado_bolao": "http://localhost:8000/bolao/{}".format(bolao.id)}
+        context = {"bolao_id":bolao.id, "criador":bolao.admin.get_full_name ,  "titulo_bolao": bolao.titulo, "link_bolao": "http://localhost:8000/bolao/{}".format(bolao.id)}
         sendmail(u'Convite para participar do bolao', users, 'mail/novo-bolao.html', category='Convite', **context)
 
         return HttpResponseRedirect('/bolao/')
