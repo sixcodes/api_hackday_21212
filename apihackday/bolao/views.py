@@ -102,6 +102,8 @@ def convidarBolao(r, bolao_id=None):
         data = {'b': bolao }
         return render_to_response('convidar.html', data, context_instance=RequestContext(r))
 
+def criarUsuario(r):
+    return render_to_response('form-criar-usuario.html', context_instance=RequestContext(r))
 
 @login_required
 def finalizarBolao(r):
