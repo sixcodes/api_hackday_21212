@@ -12,8 +12,9 @@ v1_api.register(ApostaResource())
 
 urlpatterns = patterns('',
     url(r'^$', 'bolao.views.home', name='home'),
-    url(r'^listarBolao$', 'bolao.views.listarBolao', name='listarBolao'),
-    url(r'^criarBolao$', 'bolao.views.criarBolao', name='criarBolao'),
+    url(r'^bolao$', 'bolao.views.listarBolao', name='listarbolao'),
+    url(r'^bolao/add', 'bolao.views.criarBolao', name='criarbolao'),
+    url(r'^bolao/(?P<bolao>[\d]+)$', 'bolao.views.exibeBolao', name='exibebolao'),
     # url(r'^apihackday/', include('apihackday.foo.urls')),
     url(r'', include('social_auth.urls')),
     url(r'^api/', include(v1_api.urls)),
