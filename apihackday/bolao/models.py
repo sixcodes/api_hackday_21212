@@ -31,6 +31,12 @@ class Aposta(models.Model):
 @receiver(models.signals.post_save, sender=Bolao)
 def bolao_encerrado(sender, **kwargs):
     bolao = kwargs["instance"]
+
+    fix_participantes = filter(lambda p: p.email == bolao.admin.email, bolao.participantes.all())
+    if not fix_participantes:
+        bolao.participantes.add(bolao.admin)
+        bolao.save()
+
     if bolao.encerrado:
         context = {"titulo_bolao": bolao.titulo, "link_resultado_bolao": "http://localhost:8000/bolao/{}".format(bolao.id)}
         vencedores = []
