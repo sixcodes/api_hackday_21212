@@ -10,6 +10,7 @@ class Bolao(models.Model):
     resultado_time_2 = models.IntegerField(null=True, blank=True)
     admin = models.ForeignKey(User)
     encerrado = models.BooleanField(default=False)
+    participantes = models.ManyToManyField(User, related_name="participa_em")
 
     def __repr__(self):
         return self.titulo
