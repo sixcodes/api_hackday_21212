@@ -49,6 +49,8 @@ USE_I18N = True
 # calendars according to the current locale
 USE_L10N = True
 
+LOGIN_URL = '/'
+LOGIN_REDIRECT_URL = '/bolao/'
 
 # Organização de arquivos estáticos
 MEDIA_ROOT = os.path.join(PROJECT_DIR, 'media/')
