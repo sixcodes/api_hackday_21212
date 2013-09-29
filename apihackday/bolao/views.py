@@ -87,12 +87,14 @@ def apostarBolao(r):
 @login_required
 def convidarBolao(r, bolao_id=None):
     if r.POST:
-        users = {a for a in r.POST.get('emails', ' ').split(',')}
+        users = {a.strip() for a in r.POST.get('emails', ' ').split(',')}
         bolao = Bolao.objects.get(id=bolao_id)
 
         for u in users:
             bolao.participantes.add(User.objects.get(email=u))
-        sendmail(u'Convite para participar do bolao', users, 'mail/novo-bolao.html', category='Convite', bolao_id=bolao.id)
+
+        context = {"bolao_id":bolao.id, "criador":bolao.owner.get_full_name ,  "titulo_bolao": bolao.titulo, "link_resultado_bolao": "http://localhost:8000/bolao/{}".format(bolao.id)}
+        sendmail(u'Convite para participar do bolao', users, 'mail/novo-bolao.html', category='Convite', **context)
 
         return HttpResponseRedirect('/bolao/')
     else:
