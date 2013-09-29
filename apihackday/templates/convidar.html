@@ -5,11 +5,14 @@
 
 <h1>Convidar</h1>
 <br>
-    <form method="POST" action="{% url 'convidarbolao' %}" id="bolao-form">
+    <form method="POST" action="/convidar/{{ b.id }}" id="bolao-form">
         {% csrf_token %}
-        <h3>Titulo do Bolão</h3>
-        <h1 class="label label-success">Convites enviados com sucesso</h1>
+        <h3>{{ b.titulo }}</h3>
+        {% if form.errors %}
         <h3 class="label label-danger">Deu erro no envio no convite</h3>
+        {% else %}
+        <h1 class="label label-success">Convites enviados com sucesso</h1>
+        {% endif %}
         <br/><br/>
         <input type="text" id="convites" name="emails" value="" placeholder="E-mail dos conidados" class="form-control">
         <button type="submit" class="btn btn-lg btn-primary js_save_bolao">Convidar</button>
