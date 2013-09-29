@@ -16,6 +16,7 @@ class Bolao(models.Model):
 
     __unicode__ = __repr__
 
+
 class Aposta(models.Model):
     bolao = models.ForeignKey(Bolao, related_name='apostas')
     valor_time_1 = models.IntegerField(null=True)
