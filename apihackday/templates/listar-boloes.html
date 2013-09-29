@@ -1,0 +1,55 @@
+'{% extends 'menu.html' %}
+{% block container %}
+<h4>Acompanhe todos os bolões que você participa</h4>
+<div id="listar-render"></div>
+    
+<script type="text/template" id="listar-template">
+      
+     <% _.each(boloes, function(bolao) {  %> 
+      <div class="panel-group" id="accordion">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4 class="panel-title">
+              <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#<%= bolao.id %>">
+                <%= bolao.titulo %>
+              </a>
+            </h4>
+          </div>
+          <div id="<%= bolao.id %>" class="panel-collapse collapse">
+            <div class="col-lg-12 text-center">
+                <div class="col-lg-4">
+                    <h4><%= bolao.time_1 %></h4>
+                </div>
+                <div class="col-lg-1">
+                    <h4><% if(_.isEmpty(bolao.resultado_time_1)){  print('0')  }else{ print(bolao.resultado_time_1)} %></h4>
+                </div>
+                <div class="col-lg-1">
+                    <h2>x</h2>
+                </div>
+                <div class="col-lg-1">
+                    <h4><% if(_.isEmpty(bolao.resultado_time_2)){  print('0')  }else{ print(bolao.resultado_time_2)} %></h4>
+                </div>
+                <div class="col-lg-4">
+                    <h4><%= bolao.time_2 %></h4>
+          </div>
+
+            <div class="col-lg-13 text-center" style="margin-top:10px;">
+                <a href="{% url 'finalizarbolao' %}" class="btn btn-success">Apostar</a>
+                <a href="{{ BASE_URL }}/apostar" class="btn btn-danger">Finalizar</a>
+            </div>
+          </div>
+        </div>
+  <%});%>
+</script>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+     $.get( "http://localhost:8000/api/v1/bolao/", function( data ) {
+      console.log(data.objects);
+        var template = _.template($("#listar-template").html());
+        $('#listar-render').html(template({'boloes': data.objects}));
+    });
+  });
+</script>
+
+{% endblock %}
