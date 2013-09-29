@@ -1,0 +1,25 @@
+<table style="width: 100%;" border="0" cellspacing="0" cellpadding="0">
+    <tbody>
+    <tr>
+        <td style="font-family: arial,sans-serif; background-color: #e7e7e7; padding-top: 35px; padding-right: 15px; padding-bottom: 30px; padding-left: 15px; margin: 0px;">
+            <table style="font-family: Arial, 'Helvetica Neue', sans-serif; font-size: 16px; color: #333333; width: 670px;" border="0" cellspacing="0" cellpadding="0" align="center">
+                <tbody>
+                <tr>
+                    <td style="font-family: arial,sans-serif; background-color: #fff; margin: 0; border-radius: 4px 0 0 0; -moz-border-radius: 4px 0 0 0; -webkit-border-radius: 4px 0 0 0;" height="78">
+                        <a href="" target="_blank"><img style="border: none; display: inline; border-width: 0; margin-left: 20px;" src="http://caiudepreco.com.br/static/collect/cdp/img/logo.png" width="213" height="51"  /></a>
+                    </td>
+                    {% if user_img %}
+                    <td style="font-family: arial,sans-serif; background-color: #fff; margin: 0; width: 32px; border-radius: 0 4px 0 0; -moz-border-radius: 0 4px 0 0; -webkit-border-radius: 0 4px 0 0;" height="78">
+                        <a href="" target="_blank"><img style="border: none; display: block; border-width: 0; margin-right: 20px;" src="{{ user_img }}" width="32" height="32"  /></a>
+                    </td>
+                    {% endif %}
+                </tr>
+                </tbody>
+            </table>
+
+            {% block content %}{% endblock %}
+
+        </td>
+    </tr>
+    </tbody>
+</table>
