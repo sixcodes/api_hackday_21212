@@ -1,15 +1,32 @@
 {% extends 'base.html' %}
 
 {% block menu %}
-{% if user.is_authenticated %}
 
-
-        <div class="navbar-collapse collapse">
-            <ul class="nav navbar-nav">
-                <li class="active"><a href="{% url "listarbolao" %}">Meus Bolões</a></li>
-                <li><a href="{% url "criarbolao" %}">Criar Bolão</a></li>
-            </ul>
-
+{% if not user.is_authenticated %}
+    <div class="navbar-form navbar-right">
+       <a class="btn btn-success btn-text-black" href="{% url "login" %}">Entrar</a>
+    </div>
+{% else %}
+    <div class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+            <li class="active"><a href="{% url "listarbolao" %}">Meus Bolões</a></li>
+            <li><a href="{% url "criarbolao" %}">Criar Bolão</a></li>
+            <li><a href="{% url "convidarbolao" %}">Convidar Bolão</a></li>
+            <li><a href="{% url "finalizarbolao" %}">Finalizar Bolão</a></li>
+        </ul>
+        <div class="navbar-form navbar-right">
+            <span class="btn btn-lg btn-inverse">
+                Olá {{ user.get_full_name }}, crie seu
+            </span>
+            <a class="btn btn-success btn-text-black" href="{% url "criarbolao" %}">
+                bolão
+            </a>
+            <span class="btn btn-lg btn-inverse">
+                agora!
+            </span>
+            <a class="btn btn-success btn-text-black" href="{% url "logout" %}">Sair</a>
         </div>
+    </div>
+
  {% endif %}
 {% endblock %}

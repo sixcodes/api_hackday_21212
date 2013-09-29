@@ -1,52 +1,15 @@
 
 $(document).ready(function(e){
-
-        boloes = {
-            "Bolao":
-            {
-                "titulo": "Bolão HACKDAY",
-                "time_1": "Brasil",
-                "time_2": "Argentina",
-                "resultado_time_1": 3,
-                "resultado_time_2": 1,
-                "admin": "Bruno Melo",
-                "encerrado": 1
-            },
-
-            "Bolao":
-            {
-                "titulo": "Imagina na copa",
-                "time_1": "Brasil",
-                "time_2": "Uruguai",
-                "resultado_time_1": 0,
-                "resultado_time_2": 0,
-                "admin": "JJ",
-                "encerrado": 0
-            },
-
-            "Bolao":
-            {
-                "titulo": "Campeonato Carioca",
-                "time_1": "Flamengo",
-                "time_2": "Fluminence",
-                "resultado_time_1": 2,
-                "resultado_time_2": 2,
-                "admin": "Bruno Melo",
-                "encerrado": 1
-            }
-        };
-
-        var template = _.template($("#listar-boloes").html());
-        $('#listar-render').html({'boloes': boloes});
-
-
+    listarBoloes;
 });
 
-listarBoloes = function(data){
-    console.log(data);
-    var template = _.template($("#bolao-template").html());
-    $('#bolao-render').html(template({'bolao': data}));
+listarBoloes = function(){
+    $.get( "http://localhost:8000/api/v1/bolao/", function( data ) {
+        var boloes = $.parseJSON(data.objects);
 
+        var template = _.template($("#listar-template").html());
+        $('#listar-render').html(template({'boloes': boloes}));
+    });
 };
 
 getBolao = function(e){
@@ -60,3 +23,29 @@ getBolao = function(e){
             }
         });
 };
+
+
+saveBolao = function(e){
+    var formData = JSON.stringify({
+        'titulo': $("#id_titulo").val(),
+        'time_1': $("#id_time1").val(),
+        'time_2': $("#id_time2").val()
+
+    });
+    console.log(formData);
+    $.ajax({
+        type: 'POST',
+        url: '/api/v1/bolao/',
+        contentType: 'application/json  ',
+        dataType: 'json',
+        data: formData,
+        success: function(data){
+            console.log('oi');
+            return false;
+        }
+    });
+};
+
+$('.js_save_bolao').live('click', function(e){
+   saveBolao();
+});

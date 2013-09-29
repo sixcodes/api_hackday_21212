@@ -49,6 +49,8 @@ USE_I18N = True
 # calendars according to the current locale
 USE_L10N = True
 
+APPEND_SLASH = False
+
 LOGIN_URL = '/'
 LOGIN_REDIRECT_URL = '/bolao/'
 
@@ -116,7 +118,6 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     'django.contrib.admindocs',
     'bolao',
-    'social_auth',
     'tastypie',
     'south',
 )
@@ -152,7 +153,6 @@ FACEBOOK_API_SECRET = environ.get("FB_APP_KEY", "")
 TEMPLATE_CONTEXT_PROCESSORS = (
     'django.contrib.messages.context_processors.messages',
     'django.contrib.auth.context_processors.auth',
-    'social_auth.context_processors.social_auth_by_type_backends',
 )
 
 # A sample logging configuration. The only tangible logging
