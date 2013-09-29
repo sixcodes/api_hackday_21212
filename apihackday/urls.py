@@ -20,14 +20,10 @@ urlpatterns += patterns('',
     url(r'^bolao/$', 'bolao.views.listarBolao', name='listarbolao'),
     url(r'^bolao/add', 'bolao.views.criarBolao', name='criarbolao'),
     url(r'^bolao/(?P<bolao>[\d]+)$', 'bolao.views.exibirBolao', name='exibirbolao'),
-    # url(r'^apihackday/', include('apihackday.foo.urls')),
+
     url(r'', include('social_auth.urls')),
     url(r'^api/', include(v1_api.urls)),
 
-    # Uncomment the admin/doc line below to enable admin documentation:
-    # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
-
-    # Uncomment the next line to enable the admin:
     url(r'^admin/', include(admin.site.urls)),
 )
 
