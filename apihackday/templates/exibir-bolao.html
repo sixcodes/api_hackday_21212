@@ -1,5 +1,7 @@
 {% extends 'base.html' %}
 {% block container %}
+    <div id="bolao-render"></div>
+<script type="text/template" id="bolao-template">
     <h1 class="text-center">Titulo Bolao #1</h1>
     <br>
     <div class="col-lg-12 text-center placar">
@@ -52,4 +54,11 @@
         </tbody>
       </table>
     </div>
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(e){
+   getBolao()
+});
+</script>
 {% endblock %}
