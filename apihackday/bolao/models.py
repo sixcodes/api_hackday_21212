@@ -67,6 +67,6 @@ def nova_aposta(sender, **kwargs):
                "time_2": bolao.time_2, "valor_2": aposta.valor_time_2,
                "apostador": aposta.owner.get_full_name(), "link_bolao": "http://localhost:8000/bolao/{}".format(bolao.id)}
 
-    to = [aposta.owner.email for aposta in bolao.apostas.all()]
+    to = [p.email for p in bolao.participantes.all()]
     print "to=", to
     sendmail("Nova Aposta: Bolao {}".format(bolao.titulo), to, "mail/nova-aposta.html", category="nova-aposta", **context)
