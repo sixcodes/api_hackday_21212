@@ -24,13 +24,14 @@
                     <h4><%= bolao.time_1 %></h4>
                 </div>
                 <div class="col-lg-1">
-                    <h4><% if(_.isEmpty(bolao.resultado_time_1)){  print('0')  }else{ print(bolao.resultado_time_1)} %></h4>
+                    <h4><% if(_.isEmpty(bolao.resultado_time_1) && _.isNull(bolao.resultado_time_1)){  print('0')  }else{ print(bolao.resultado_time_1)} %></h4>
                 </div>
                 <div class="col-lg-1">
                     <h2>x</h2>
                 </div>
                 <div class="col-lg-1">
-                    <h4><% if(_.isEmpty(bolao.resultado_time_2)){  print('0')  }else{ print(bolao.resultado_time_2)} %></h4>
+
+                    <h4><% if(_.isEmpty(bolao.resultado_time_2) && _.isNull(bolao.resultado_time_2)){  print('0')  }else{ print(bolao.resultado_time_2)} %></h4>
                 </div>
                 <div class="col-lg-4">
                     <h4><%= bolao.time_2 %></h4>
