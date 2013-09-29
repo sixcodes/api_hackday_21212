@@ -7,7 +7,7 @@ def home(r):
     return render_to_response('home.html', context_instance=RequestContext(r))
 
 def listarBolao(r):
-    return render_to_response('listar-bolao.html', context_instance=RequestContext(r))
+    return render_to_response('exibir-bolao.html', context_instance=RequestContext(r))
 
 def criarBolao(r):
     return render_to_response('form-criar-bolao.html', context_instance=RequestContext(r))

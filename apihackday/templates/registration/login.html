@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% block header %} {% endblock %}
+
+{% block content %}
+
+<div id="login-page">
+    <div id="login-holder">
+
+            <span id="logo-big"></span>
+            <h1>Entre com seu login:</h1>
+
+            {% if form.errors %}
+                <h4 class="jobs-feedback-error">Login e senha incorretos</h4>
+            {% endif %}
+
+            <form action="{% url login %}" method="post">
+                {% csrf_token %}
+
+                <input id="id_username" type="text" name="username" maxlength="30" placeholder="Seu email"/>
+                <input id="id_password" type="password" name="password" placeholder="Sua senha"/>
+
+                <div class="login-actions">
+                    <a href="" class="forget-psw">Bom trabalho!</a>
+                    <button type="submit" class="ok-btn">Entrar</button>
+                    <b class="clear"></b>
+                </div>
+
+            </form>
+    </div>
+</div>
+
+ {% endblock %}
+
+{% block footer %} {% endblock %}
