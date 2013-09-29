@@ -2,12 +2,12 @@
 
 {% block container %}
     <div id="bolao-render"></div>
-    <h1 class="text-center">Titulo Bolao #1</h1>
+    <h1 class="text-center">{{ titulo }}</h1>
     <br>
     <form  id="bolao-form">
         <div class="col-lg-12 text-center placar">
             <div class="col-lg-4">
-                <h4>Time #1</h4>
+                <h4>{{ time_1 }}</h4>
             </div>
             <div class="col-lg-1">
                 <input type="text" id="id_time1" name="valor_time1" value="" placeholder="" class="form-control">
@@ -19,11 +19,11 @@
                 <input type="text" id="id_time1" name="valor_time2" value="" placeholder="" class="form-control">
             </div>
             <div class="col-lg-4">
-                <h4>Time #2</h4>
+                <h4>{{ time_2 }}</h4>
             </div>
         </div>
         <div class="col-lg-12 text-center">
-            <a href="#" class="btn btn-lg btn-block btn-primary js_save_bolao">Salvar</a>
+            <a href="#" class="btn btn-lg btn-block btn-primary js_save_bolao">Finalizar</a>
         </div>
         <br/><br/>
         <div class="col-lg-12 text-center">

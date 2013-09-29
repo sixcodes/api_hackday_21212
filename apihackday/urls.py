@@ -17,6 +17,7 @@ urlpatterns = patterns('',
 
 urlpatterns += patterns('',
     url(r'^home$', 'bolao.views.home', name='home'),
+    url(r'^mail/?$', 'bolao.views.mail', name='mail'),
     url(r'^finalizar/$', 'bolao.views.finalizarBolao', name='finalizarbolao'),
     url(r'^apostar/$', 'bolao.views.apostarBolao', name='apostarbolao'),
     url(r'^convidar/$', 'bolao.views.convidarBolao', name='convidarbolao'),
