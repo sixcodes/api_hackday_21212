@@ -25,11 +25,10 @@ def listarBolao(r):
 
 @login_required
 def criarBolao(r):
-    print r.user
     return render_to_response('form-criar-bolao.html', context_instance=RequestContext(r))
 
 @login_required
-def exibirBolao(r):
+def exibirBolao(r, id):
     return render_to_response('exibir-bolao.html', context_instance=RequestContext(r))
 
 
