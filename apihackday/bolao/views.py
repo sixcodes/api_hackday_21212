@@ -5,6 +5,7 @@ from django.conf import settings
 from django.contrib.auth import user_logged_in, BACKEND_SESSION_KEY, SESSION_KEY, REDIRECT_FIELD_NAME
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth.models import User
 from django.contrib.sites.models import get_current_site
 from django.http import HttpResponseRedirect, HttpResponse
 from django.http import HttpResponseRedirect, HttpResponse
@@ -15,6 +16,7 @@ from django.utils.http import is_safe_url
 from django.views.decorators.cache import never_cache
 from django.views.decorators.csrf import csrf_protect, csrf_exempt
 from django.views.decorators.debug import sensitive_post_parameters
+from apihackday.bolao.mail import sendmail
 from apihackday.bolao.models import Bolao, Aposta
 import json
 from models import Bolao, Aposta
@@ -83,9 +85,21 @@ def apostarBolao(r):
 
 
 @login_required
-def convidarBolao(r):
+def convidarBolao(r, bolao_id=None):
     if r.POST:
+        users = {a for a in r.POST.get('emails', ' ').split(',')}
+        bolao = Bolao.objects.get(id=bolao_id)
+
+        for u in users:
+            bolao.participantes.add(User.objects.get(email=u))
+        sendmail(u'Convite para participar do bolao', users, 'mail/novo-bolao.html', category='Convite', bolao_id=bolao.id)
+
         return render_to_response('convidar.html', context_instance=RequestContext(r))
+    else:
+        bolao = Bolao.objects.get(id=bolao_id)
+        data = {'b': bolao }
+        return render_to_response('convidar.html', data, context_instance=RequestContext(r))
+
 
 @login_required
 def finalizarBolao(r):
@@ -110,9 +124,6 @@ def finalizarBolao(r):
 
         return render_to_response('form-resultado-bolao.html', dict, context_instance=RequestContext(r))
 
-@login_required
-def convidarBolao(r):
-    return render_to_response('convidar.html', context_instance=RequestContext(r))
 
 @login_required
 def listarBolao(r):
