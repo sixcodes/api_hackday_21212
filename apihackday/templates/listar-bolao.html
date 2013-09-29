@@ -1,32 +1,97 @@
 {% extends 'base.html' %}
 {% block container %}
-    <div class="col-lg-12">
-        <div class="col-lg-4">
-            <div id="lista-bolao-render">
-                <ul class="nav nav-pills nav-stacked">
-                  <li class="active">
-                    <a href="#">
-                      <span class="badge pull-right">01 participante</span>
-                      Nome Bolao #1
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <span class="badge pull-right">08 participantes</span>
-                      Nome Bolao #2
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <span class="badge pull-right">09 participantes</span>
-                      Nome Bolao #3
-                    </a>
-                  </li>
-                </ul>
-            </div>
-        </div>
-        <div class="col-lg-8">
-        Resultado quando clicar aparecerá aqui
-        </div>
+<h4>Acompanhe todos os bolões que você participa</h4>
+<div class="panel-group" id="accordion">
+  
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#bolao-id-1">
+          Bolão APIHackDay
+        </a>
+      </h4>
     </div>
+    
+    <div id="bolao-id-1" class="panel-collapse collapse in">
+      <div class="panel-body">
+            <div class="col-lg-4">
+                <h4>Brasil</h4>
+            </div>
+            <div class="col-lg-1">
+                <h4>3</h4>
+            </div>
+            <div class="col-lg-1">
+                <h2>x</h2>
+            </div>
+            <div class="col-lg-1">
+                <h4>1</h4>
+            </div>
+            <div class="col-lg-4">
+            <h4>Argentina</h4>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#bolao-id-2">
+          Bolão APIHackDay
+        </a>
+      </h4>
+    </div>
+    <div id="bolao-id-2" class="panel-collapse collapse">
+      <div class="panel-body">
+            <div class="col-lg-4">
+                <h4>Brasil</h4>
+            </div>
+            <div class="col-lg-1">
+                <h4>3</h4>
+            </div>
+            <div class="col-lg-1">
+                <h2>x</h2>
+            </div>
+            <div class="col-lg-1">
+                <h4>1</h4>
+            </div>
+            <div class="col-lg-4">
+            <h4>Argentina</h4>
+        </div>
+      </div>
+    </div>
+  </div>
+
+   <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#bolao-id-3">
+          Bolão APIHackDay
+        </a>
+      </h4>
+    </div>
+    <div id="bolao-id-3" class="panel-collapse collapse">
+      <div class="panel-body">
+            <div class="col-lg-4">
+                <h4>Brasil</h4>
+            </div>
+            <div class="col-lg-1">
+                <h4>3</h4>
+            </div>
+            <div class="col-lg-1">
+                <h2>x</h2>
+            </div>
+            <div class="col-lg-1">
+                <h4>1</h4>
+            </div>
+            <div class="col-lg-4">
+            <h4>Argentina</h4>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
 {% endblock %}

@@ -28,5 +28,5 @@ urlpatterns = patterns('',
 
 urlpatterns += patterns('',
    url(r'^$', 'bolao.views.login', name='login'),
-   url(r'^logout/$', 'jobs.views.logout.logout_then_login' , name='logout'),
+   #url(r'^logout/$', 'bolao.views.logout.logout_then_login' , name='logout'),
 )
