@@ -20,6 +20,14 @@ def home(r):
     return render_to_response('home.html', context_instance=RequestContext(r))
 
 @login_required
+def finalizarBolao(r):
+    return render_to_response('form-resultado-bolao.html', context_instance=RequestContext(r))
+
+@login_required
+def convidarBolao(r):
+    return render_to_response('convidar.html', context_instance=RequestContext(r))
+
+@login_required
 def listarBolao(r):
     return render_to_response('listar-bolao.html', context_instance=RequestContext(r))
 

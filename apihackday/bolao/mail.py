@@ -5,6 +5,12 @@ from os import environ
 
 
 def sendmail(subject, to, template, category='alert', **kwargs):
+
+    if not environ.get("ENVIA", False):
+        print "nao enviando email"
+        return
+
+    print "enviando email"
     # make a secure connection to SendGrid
     s = sendgrid.Sendgrid(environ.get("SENDGRID_USER"), environ.get("SENDGRID_PWD"), secure=True)
 
@@ -15,7 +21,8 @@ def sendmail(subject, to, template, category='alert', **kwargs):
     message = sendgrid.Message("bolao@bolao.daltonmatos.com", subject, "", unicode(body).encode("utf-8"))
 
     # add a recipient
-    message.add_to(to)
+    for recipient in to:
+        message.add_to(recipient)
 
     message.add_category(category)
     # use the Web API to send your message

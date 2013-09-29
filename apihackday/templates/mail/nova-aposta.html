@@ -20,7 +20,7 @@
                             <td style="background-color:#576676;">
 
                                 <a style="color:#ffffff; display:block"
-                                   href="#resultado_bolao"
+                                   href="{{ link_bolao }}"
                                    target="_blank">
 
                                     Imagem do Bolao!!!
@@ -48,7 +48,7 @@
                                             <h1 style="color: #4a5665; border-bottom: 1px solid #e2e2e2; padding-bottom: 3px; line-height:1.0; margin:0">
 
 
-                                                <span style="font-weight:bold; font-size:22px;">Saiu o resultado do bol&atilde;o {{ titulo_bolao }}!!!</span>
+                                                <span style="font-weight:bold; font-size:22px;">Apostaram no bol&atilde;o {{ titulo_bolao }}!!!</span>
 
 
                                             </h1>
@@ -71,10 +71,10 @@
                                                         style="height: 114px;">
 
                                                         <a style="display: block;"
-                                                           href="{{ link_resultado_bolao }}">
+                                                           href="{{ link_bolao }}">
 
                                                             <img style="max-width: 114px; max-height: 114px; margin: 0 auto;"
-                                                                 src="http://sucesso.powerminas.com/wp-content/uploads/2012/05/vencedor.jpg"
+                                                                 src="http://www.fragaefilhos.com.br/wp-content/uploads/2013/05/img-checklist.jpg"
                                                                  border=0/>
 
                                                         </a>
@@ -85,23 +85,22 @@
                                                         style="padding-left: 25px; text-align: left; min-height:175px;">
 
                                                         <a style="display:block;text-decoration:none"
-                                                           href="{{ link_resultado_bolao }}">
+                                                           href="{{ link_bolao }}">
 
                                                             <p style="margin-top:10px;margin-bottom:20px;color:rgb(0,0,0);font-size:16px;font-weight:bold">
-                                                                Vencedores: </p>
+                                                                Quem apostou foi.... </p>
 
-                                                            {% for v in vencedores %}
-                                                                <p style="color:rgb(16,105,208);font-size:18px;font-weight:bold;margin-bottom:10px">
-                                                                    {{ v }}
-                                                                </p>
-                                                            {% endfor %}
+                                                            <p style="color:rgb(16,105,208);font-size:18px;font-weight:bold;margin-bottom:10px">
+                                                                {{ apostador }}</p>
 
-                                                            <p style="margin-top:10px;margin-bottom:20px;color:rgb(0,0,0);font-size:26px;font-weight:bold">
-                                                                Parab&eacute;ns!!!</p>
+                                                            <p style="margin-top:10px;margin-bottom:20px;color:rgb(0,0,0);font-size:16px;font-weight:bold">
+                                                                Aposta:
+                                                                <br/>
+                                                                {{ time_1 }} {{ valor_1 }} <br>x<br> {{ valor_2 }} {{ time_2 }}</p>
                                                         </a>
-                                                        <a href="{{ link_resultado_bolao }}"
+                                                        <a href="{{ link_bolao }}"
                                                            style="text-decoration: none; letter-spacing:0pt;text-align:center;color:white;font-size:14px;font-weight:bold;white-space:nowrap;padding-top:2px;padding-right:10px;padding-bottom:2px;padding-left:10px;background-image:none;background-color:rgb(37,116,211);border-top-width:4px;border-right-width:4px;border-bottom-width:4px;border-left-width:4px;border-top-style:solid;border-right-style:solid;border-bottom-style:solid;border-left-style:solid;border-top-color:rgb(37,116,211);border-right-color:rgb(37,116,211);border-bottom-color:rgb(37,116,211);border-left-color:rgb(37,116,211);border-top-left-radius:30px;border-top-right-radius:30px;border-bottom-right-radius:30px;border-bottom-left-radius:30px;background-repeat:repeat repeat">
-                                                            Ver os resultados!</a>
+                                                            Ver o Bolão!</a>
                                                     </td>
                                                 </tr>
                                                 </tbody>
@@ -112,12 +111,6 @@
                                 </table>
                             </td>
                         </tr>
-                        <tr>
-                            <td style="background-color:#ebeff4;text-align:center;padding:6px 0px">
-                                <span style="font-size:11px;color:#6b7888">E-mail enviado {{ dia }} &agrave;s {{ hora }}.</span>
-                            </td>
-                        </tr>
-
                         </tbody>
 
                     </table>
