@@ -97,6 +97,7 @@ def finalizarBolao(r):
         meu_bolao.resultado_time_1 = valor_time_1
         meu_bolao.resultado_time_2 = valor_time_2
         meu_bolao.encerrado = True
+        meu_bolao.save()
         return render_to_response('form-resultado-bolao.html', context_instance=RequestContext(r))
     else:
         id_bolao = r.GET.get('id', None)
