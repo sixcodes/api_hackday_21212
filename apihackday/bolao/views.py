@@ -14,7 +14,7 @@ from django.utils.http import is_safe_url
 from django.views.decorators.cache import never_cache
 from django.views.decorators.csrf import csrf_protect
 from django.views.decorators.debug import sensitive_post_parameters
-
+from apihackday.bolao.models import Bolao, Aposta
 
 def home(r):
     return render_to_response('home.html', context_instance=RequestContext(r))
@@ -43,7 +43,23 @@ def criarBolao(r):
 
 @login_required
 def exibirBolao(r):
-    return render_to_response('exibir-bolao.html', context_instance=RequestContext(r))
+    id_bolao = r.GET.get('id', None)
+    meu_bolao = Bolao.objects.get(id=id_bolao)
+    dict = {}
+    dict['titulo'] = meu_bolao.titulo
+    dict['time_1'] = meu_bolao.time_1
+    dict['time_2'] = meu_bolao.time_2
+    if meu_bolao.resultado_time_1 :
+        dict['resultado_time_1'] = meu_bolao.resultado_time_1
+    else:
+        dict['resultado_time_1'] = 0
+
+    if meu_bolao.resultado_time_2:
+        dict['resultado_time_2'] = meu_bolao.resultado_time_2
+    else:
+        dict['resultado_time_2'] = 0
+
+    return render_to_response('exibir-bolao.html', dict, context_instance=RequestContext(r))
 
 @login_required
 def finalizar(r):

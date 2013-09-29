@@ -1,25 +1,25 @@
 {% extends 'menu.html' %}
 
 {% block container %}
-    <div id="bolao-render"></div>
-<script type="text/template" id="bolao-template">
+
+
     <h1 class="text-center">Bolão APIHACKDAY</h1>
     <br>
     <div class="col-lg-12 text-center placar">
         <div class="col-lg-4">
-            <h4>Brasil</h4>
+            <h4>{{ time_1 }}</h4>
         </div>
         <div class="col-lg-1">
-            <h4>3</h4>
+            <h4>{{ resultado_time_1 }}</h4>
         </div>
         <div class="col-lg-1">
             <h2>x</h2>
         </div>
         <div class="col-lg-1">
-            <h4>1</h4>
+            <h4>{{ resultado_time_2 }}</h4>
         </div>
         <div class="col-lg-4">
-            <h4>Argentina</h4>
+            <h4>{{ time_2 }}</h4>
         </div>
     </div>
     <div class="col-lg-12">
@@ -55,11 +55,5 @@
         </tbody>
       </table>
     </div>
-</script>
-
-<script type="text/javascript">
-$(document).ready(function(){
-   getBolao();
-});
 </script>
 {% endblock %}
