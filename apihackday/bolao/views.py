@@ -1,4 +1,5 @@
 # Create your views here.
+import urlparse
 from django.conf import settings
 from django.contrib.auth import user_logged_in, BACKEND_SESSION_KEY, SESSION_KEY, REDIRECT_FIELD_NAME
 from django.contrib.auth.forms import AuthenticationForm
