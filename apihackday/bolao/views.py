@@ -6,7 +6,7 @@ from django.contrib.auth import user_logged_in, BACKEND_SESSION_KEY, SESSION_KEY
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.sites.models import get_current_site
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, HttpResponse
 from django.shortcuts import render_to_response
 from django.template import RequestContext
 from django.template.response import TemplateResponse
@@ -14,6 +14,7 @@ from django.utils.http import is_safe_url
 from django.views.decorators.cache import never_cache
 from django.views.decorators.csrf import csrf_protect
 from django.views.decorators.debug import sensitive_post_parameters
+from apihackday.bolao.models import Bolao, Aposta
 
 
 def home(r):
@@ -21,7 +22,24 @@ def home(r):
 
 @login_required
 def apostarBolao(r):
-    return render_to_response('form-apostar-bolao.html', context_instance=RequestContext(r))
+    if r.POST:
+        id_bolao = r.POST.get('id', None)
+        meu_bolao = Bolao.objects.get(id=id_bolao)
+        valor_time_1 = r.POST.get('valor_time_1', None)
+        valor_time_2 = r.POST.get('valor_time_2', None)
+        Aposta.objects.create(bolao=meu_bolao, valor_time_1=valor_time_1, valor_time_2=valor_time_2, owner_id=r.POST['owner_id'])
+        return render_to_response('form-apostar-bolao.html', context_instance=RequestContext(r))
+    else:
+        id_bolao = r.GET.get('id', None)
+        meu_bolao = Bolao.objects.get(id=id_bolao)
+
+        dict = {}
+        dict['titulo'] = meu_bolao.titulo
+        dict['time_1'] = meu_bolao.time_1
+        dict['time_2'] = meu_bolao.time_2
+
+        return render_to_response('form-apostar-bolao.html', dict, context_instance=RequestContext(r))
+
 
 
 @login_required
