@@ -44,26 +44,6 @@
         </div>
     {% block menu %}
     {% endblock %}
-            {% if not user.is_authenticated %}
-            <div class="navbar-form navbar-right">
-               <a class="btn btn-success btn-text-black" href="{% url "login" %}">Entrar</a>
-            </div>
-            {% else %}
-                <div class="navbar-form navbar-right">
-               <a class="btn btn-success btn-text-black" href="{% url "logout" %}">Sair</a>
-            </div>
-            {% endif %}
-            <div class="navbar-form navbar-right">
-                <span class="btn btn-lg btn-inverse">
-                    Olá {{ user.get_full_name }}, crie seu
-                </span>
-                <a class="btn btn-success btn-text-black" href="{% url "criarbolao" %}">
-                    bolão
-                </a>
-                <span class="btn btn-lg btn-inverse">
-                    agora!
-                </span>
-            </div>
     </div>
 </div>
 <div class="container">
