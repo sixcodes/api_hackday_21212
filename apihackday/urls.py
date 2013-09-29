@@ -17,12 +17,15 @@ urlpatterns = patterns('',
 
 urlpatterns += patterns('',
     url(r'^home$', 'bolao.views.home', name='home'),
+    url(r'^mail/?$', 'bolao.views.mail', name='mail'),
     url(r'^finalizar/$', 'bolao.views.finalizarBolao', name='finalizarbolao'),
     url(r'^apostar/$', 'bolao.views.apostarBolao', name='apostarbolao'),
     url(r'^convidar/$', 'bolao.views.convidarBolao', name='convidarbolao'),
     url(r'^bolao/$', 'bolao.views.listarBolao', name='listarbolao'),
     url(r'^bolao/add', 'bolao.views.criarBolao', name='criarbolao'),
     url(r'^convidar/(?P<bolao_id>[\d]+)$', 'bolao.views.convidarBolao', name='convidar'),
+    url(r'^bolao/exibir/$', 'bolao.views.exibirBolao', name='exibirbolao'),
+    
     url(r'^bolao/(?P<id>[\d]+)$', 'bolao.views.exibirBolao', name='exibirbolao'),
 
     url(r'', include('social_auth.urls')),
@@ -30,4 +33,3 @@ urlpatterns += patterns('',
 
     url(r'^admin/', include(admin.site.urls)),
 )
-

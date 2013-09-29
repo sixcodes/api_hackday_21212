@@ -31,6 +31,12 @@ class Aposta(models.Model):
 @receiver(models.signals.post_save, sender=Bolao)
 def bolao_encerrado(sender, **kwargs):
     bolao = kwargs["instance"]
+
+    fix_participantes = filter(lambda p: p.email == bolao.admin.email, bolao.participantes.all())
+    if not fix_participantes:
+        bolao.participantes.add(bolao.admin)
+        bolao.save()
+
     if bolao.encerrado:
         context = {"titulo_bolao": bolao.titulo, "link_resultado_bolao": "http://localhost:8000/bolao/{}".format(bolao.id)}
         vencedores = []
@@ -61,6 +67,6 @@ def nova_aposta(sender, **kwargs):
                "time_2": bolao.time_2, "valor_2": aposta.valor_time_2,
                "apostador": aposta.owner.get_full_name(), "link_bolao": "http://localhost:8000/bolao/{}".format(bolao.id)}
 
-    to = [aposta.owner.email for aposta in bolao.apostas.all()]
+    to = [p.email for p in bolao.participantes.all()]
     print "to=", to
     sendmail("Nova Aposta: Bolao {}".format(bolao.titulo), to, "mail/nova-aposta.html", category="nova-aposta", **context)

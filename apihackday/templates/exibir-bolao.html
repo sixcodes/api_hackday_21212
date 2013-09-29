@@ -1,26 +1,25 @@
 {% extends 'menu.html' %}
 
 {% block container %}
-    <div id="bolao-render"></div>
+    <h1 class="text-center">{{ titulo }}</h1>
 
-<script type="text/template" id="bolao1-template">
-    <h1 class="text-center">Titulo Bolao #1</h1>
+    <div id="bolao-render"></div>
     <br>
     <div class="col-lg-12 text-center placar">
         <div class="col-lg-4">
-            <h4>Time #1</h4>
+            <h4>{{ time_1 }}</h4>
         </div>
         <div class="col-lg-1">
-            <h4>1</h4>
+            <h4>{{ resultado_time_1 }}</h4>
         </div>
         <div class="col-lg-1">
             <h2>x</h2>
         </div>
         <div class="col-lg-1">
-            <h4>1</h4>
+            <h4>{{ resultado_time_2 }}</h4>
         </div>
         <div class="col-lg-4">
-            <h4>Time #2</h4>
+            <h4>{{ time_2 }}</h4>
         </div>
     </div>
     <div class="col-lg-12">
@@ -39,28 +38,22 @@
             <td>Mark</td>
             <td>1</td>
             <td>0</td>
-            <td><span class="glyphicon glyphicon-remove"></span></td>
+            <td>Nao</td>
           </tr>
           <tr>
             <td>Jacob</td>
             <td>0</td>
             <td>1</td>
-            <td><span class="glyphicon glyphicon-remove"></span></td>
+            <td>Sim</td>
           </tr>
           <tr>
             <td>Larry</td>
             <td>1</td>
             <td>1</td>
-            <td><span class="glyphicon glyphicon-ok"></span></td>
+            <td>Nao</td>
           </tr>
         </tbody>
       </table>
     </div>
-</script>
-
-<script type="text/javascript">
-$(document).ready(function(){
-   getBolao();
-});
 </script>
 {% endblock %}
