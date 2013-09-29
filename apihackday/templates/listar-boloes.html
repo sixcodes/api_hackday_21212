@@ -1,7 +1,8 @@
 '{% extends 'menu.html' %}
 {% load staticfiles %}
 {% block container %}
-<h4>Acompanhe todos os bolões que você participa</h4>
+<h3><img src="{% static 'img/loop.svg' %}" alt="Loop"> Acompanhe todos os bolões que você participa</h3>
+<br>
 <div id="listar-render"></div>
     
 <script type="text/template" id="listar-template">
