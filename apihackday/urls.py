@@ -16,7 +16,7 @@ urlpatterns = patterns('',
 )
 
 urlpatterns += patterns('',
-    url(r'^home/$', 'bolao.views.home', name='home'),
+    url(r'^home$', 'bolao.views.home', name='home'),
     url(r'^bolao/$', 'bolao.views.listarBolao', name='listarbolao'),
     url(r'^bolao/add', 'bolao.views.criarBolao', name='criarbolao'),
     url(r'^bolao/(?P<bolao>[\d]+)$', 'bolao.views.exibirBolao', name='exibirbolao'),

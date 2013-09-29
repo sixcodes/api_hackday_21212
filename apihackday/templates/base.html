@@ -40,12 +40,23 @@
 <div class="navbar-fixed-top">
     <div class="container-top">
         <div class="navbar-header">
-            <a class="navbar-brand" href="{% url "home" %}">Zezaz</a>
+            <a class="navbar-brand text-white" href="{% url "home" %}">Zezaz</a>
         </div>
     {% block menu %}
     {% endblock %}
                 <div class="navbar-form navbar-right">
                <a class="btn btn-success btn-text-black" href="{% url "login" %}">Login</a>
+            </div>
+            <div class="navbar-form navbar-right">
+                <span class="btn btn-lg btn-inverse">
+                    Olá Fulano, crie seu
+                </span>
+                <a class="btn btn-success btn-text-black" href="{% url "criarbolao" %}">
+                    bolão
+                </a>
+                <span class="btn btn-lg btn-inverse">
+                    agora!
+                </span>
             </div>
     </div>
 </div>
