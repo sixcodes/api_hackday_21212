@@ -20,3 +20,29 @@ getBolao = function(e){
             }
         });
 };
+
+
+saveBolao = function(e){
+    var formData = JSON.stringify({
+        'titulo': $("#id_titulo").val(),
+        'time_1': $("#id_time1").val(),
+        'time_2': $("#id_time2").val()
+
+    });
+    console.log(formData);
+    $.ajax({
+        type: 'POST',
+        url: '/api/v1/bolao/',
+        contentType: 'application/json  ',
+        dataType: 'json',
+        data: formData,
+        success: function(data){
+            console.log('oi');
+            return false;
+        }
+    });
+};
+
+$('.js_save_bolao').live('click', function(e){
+   saveBolao();
+});
