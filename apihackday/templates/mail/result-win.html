@@ -88,10 +88,13 @@
                                                            href="{{ link_resultado_bolao }}">
 
                                                             <p style="margin-top:10px;margin-bottom:20px;color:rgb(0,0,0);font-size:16px;font-weight:bold">
-                                                                E o vencedor &eacute;.... </p>
+                                                                Vencedores: </p>
 
-                                                            <p style="color:rgb(16,105,208);font-size:18px;font-weight:bold;margin-bottom:10px">
-                                                                {{ vencedor }}</p>
+                                                            {% for v in vencedores %}
+                                                                <p style="color:rgb(16,105,208);font-size:18px;font-weight:bold;margin-bottom:10px">
+                                                                    {{ v }}
+                                                                </p>
+                                                            {% endfor %}
 
                                                             <p style="margin-top:10px;margin-bottom:20px;color:rgb(0,0,0);font-size:26px;font-weight:bold">
                                                                 Parab&eacute;ns!!!</p>
