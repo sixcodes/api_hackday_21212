@@ -1,3 +1,8 @@
+.placar {
+    margin-bottom: 100px;
+    line-height:150px;
+}
+
 .tooltip {
     display: block;
 }
