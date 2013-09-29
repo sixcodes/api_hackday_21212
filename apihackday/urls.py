@@ -24,6 +24,7 @@ urlpatterns += patterns('',
     url(r'^bolao/add', 'bolao.views.criarBolao', name='criarbolao'),
     url(r'^bolao/(?P<bolao>[\d]+)$', 'bolao.views.exibirBolao', name='exibirbolao'),
 
+    url(r'', include('social_auth.urls')),
     url(r'^api/', include(v1_api.urls)),
 
     url(r'^admin/', include(admin.site.urls)),

@@ -14,7 +14,6 @@ from django.utils.http import is_safe_url
 from django.views.decorators.cache import never_cache
 from django.views.decorators.csrf import csrf_protect
 from django.views.decorators.debug import sensitive_post_parameters
-from django.models import *
 
 
 def home(r):
@@ -48,8 +47,6 @@ def exibirBolao(r):
 
 @login_required
 def finalizar(r):
-    bolao = Bolao.getObjects();
-
     return render_to_response('exibir-bolao.html', context_instance=RequestContext(r))    
 
 

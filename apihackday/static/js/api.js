@@ -48,4 +48,8 @@ saveBolao = function(e){
 
 $('.js_save_bolao').live('click', function(e){
    saveBolao();
+<<<<<<< HEAD
 });
+=======
+});
+>>>>>>> 3aa602adf364710fb9478bc7a220e9c9c6578cde

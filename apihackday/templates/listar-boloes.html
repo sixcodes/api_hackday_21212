@@ -34,8 +34,8 @@
           </div>
 
             <div class="col-lg-13 text-center" style="margin-top:10px;">
-                <a href="{% url 'finalizarbolao' %}" class="btn btn-success">Apostar</a>
-                <a href="{{ BASE_URL }}/apostar" class="btn btn-danger">Finalizar</a>
+                <a href="{% url 'apostarbolao' %}?id=<%= bolao.id %>" class="btn btn-success">Apostar</a>
+                <a href="{% url 'finalizarbolao' %}?id=<%= bolao.id %>" class="btn btn-danger">Finalizar</a>
             </div>
           </div>
         </div>
