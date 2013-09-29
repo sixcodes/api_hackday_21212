@@ -30,6 +30,9 @@ class ApostaResource(ModelResource):
         authorization = default_authorization
         authentication = default_authentication
 
+    def obj_create(self, bundle, **kwargs):
+        return super(ApostaResource, self).obj_create(bundle, owner=bundle.request.user)
+
 
 class BolaoResource(ModelResource):
     apostas = fields.ToManyField(ApostaResource, 'apostas', null=True, blank=True, full=True)
@@ -43,3 +46,6 @@ class BolaoResource(ModelResource):
         user = request.user
         if user.is_authenticated():
             return (user.participa_em.all() | Bolao.objects.filter(admin=user)).distinct()
+
+    def obj_create(self, bundle, **kwargs):
+        return super(BolaoResource, self).obj_create(bundle, admin=bundle.request.user)
