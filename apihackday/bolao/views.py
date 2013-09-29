@@ -151,6 +151,18 @@ def exibirBolao(r):
     else:
         dict['resultado_time_2'] = 0
 
+    apostas = meu_bolao.apostas.all()
+
+    lista_aposta = []
+    for aposta in apostas:
+        tmp = {
+            'valor_time_1': aposta.valor_time_1,
+            'valor_time_2': aposta.valor_time_2,
+            'status': "Sim" if aposta.status_aposta else "Nao",
+            'nome_usuario': aposta.owner.get_full_name()
+        }
+        lista_aposta.append(tmp)
+    dict['apostas'] = lista_aposta
     return render_to_response('exibir-bolao.html', dict, context_instance=RequestContext(r))
 
 @login_required

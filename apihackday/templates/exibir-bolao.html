@@ -28,29 +28,20 @@
         <thead>
           <tr>
             <th>Apostador</th>
-            <th>Time #1</th>
-            <th>Time #2</th>
+            <th>{{ time_1 }}</th>
+            <th>{{ time_2 }}</th>
             <th>Ganhou?</th>
           </tr>
         </thead>
         <tbody>
+        {% for aposta in apostas %}
           <tr>
-            <td>Mark</td>
-            <td>1</td>
-            <td>0</td>
-            <td>Nao</td>
+            <td>{{ aposta.nome_usuario }}</td>
+            <td>{{ aposta.valor_time_1}}</td>
+            <td>{{ aposta.valor_time_2 }}</td>
+            <td>{{ aposta.status }}</td>
           </tr>
-          <tr>
-            <td>Jacob</td>
-            <td>0</td>
-            <td>1</td>
-            <td>Sim</td>
-          </tr>
-          <tr>
-            <td>Larry</td>
-            <td>1</td>
-            <td>1</td>
-            <td>Nao</td>
+        {% endfor %}
           </tr>
         </tbody>
       </table>
