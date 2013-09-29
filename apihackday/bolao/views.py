@@ -1,5 +1,6 @@
 # Create your views here.
 import urlparse
+from django.contrib.auth import REDIRECT_FIELD_NAME, logout as auth_logout
 from django.conf import settings
 from django.contrib.auth import user_logged_in, BACKEND_SESSION_KEY, SESSION_KEY, REDIRECT_FIELD_NAME
 from django.contrib.auth.forms import AuthenticationForm
@@ -8,6 +9,7 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import render_to_response
 from django.template import RequestContext
 from django.template.response import TemplateResponse
+from django.utils.http import is_safe_url
 from django.views.decorators.cache import never_cache
 from django.views.decorators.csrf import csrf_protect
 from django.views.decorators.debug import sensitive_post_parameters
@@ -89,3 +91,42 @@ def login(request, template_name='registration/login.html',
         context.update(extra_context)
     return TemplateResponse(request, template_name, context, current_app=current_app)
 
+def logout(request, next_page=None,
+           template_name='registration/logged_out.html',
+           redirect_field_name=REDIRECT_FIELD_NAME,
+           current_app=None, extra_context=None):
+    """
+    Logs out the user and displays 'You are logged out' message.
+    """
+    auth_logout(request)
+
+    if redirect_field_name in request.REQUEST:
+        next_page = request.REQUEST[redirect_field_name]
+        # Security check -- don't allow redirection to a different host.
+        if not is_safe_url(url=next_page, host=request.get_host()):
+            next_page = request.path
+
+    if next_page:
+        # Redirect to this page until the session has been cleared.
+        return HttpResponseRedirect(next_page)
+
+    current_site = get_current_site(request)
+    context = {
+        'site': current_site,
+        'site_name': current_site.name,
+        'title': _('Logged out')
+    }
+    if extra_context is not None:
+        context.update(extra_context)
+    return TemplateResponse(request, template_name, context,
+        current_app=current_app)
+
+
+def logout_then_login(request, login_url=None, current_app=None, extra_context=None):
+    """
+    Logs out the user if he is logged in. Then redirects to the log-in page.
+    """
+
+    if not login_url:
+        login_url = settings.LOGIN_URL
+    return logout(request, login_url, current_app=current_app, extra_context=extra_context)
