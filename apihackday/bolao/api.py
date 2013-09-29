@@ -10,8 +10,8 @@ default_authorization = DjangoAuthorization()
 default_authentication = SessionAuthentication()
 
 # Comente essas linhas para ligar a autenticaçao/permissoes
-default_authentication = Authentication()
-default_authorization = Authorization()
+#default_authentication = Authentication()
+#default_authorization = Authorization()
 
 
 class ApostadorResource(ModelResource):
@@ -38,3 +38,8 @@ class BolaoResource(ModelResource):
         queryset = Bolao.objects.all()
         authorization = default_authorization
         authentication = default_authentication
+
+    def get_object_list(self, request):
+        user = request.user
+        if user.is_authenticated():
+            return (user.participa_em.all() | Bolao.objects.filter(admin=user)).distinct()
