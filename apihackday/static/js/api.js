@@ -1,12 +1,11 @@
 
 $(document).ready(function(e){
-    listarBoloes;
 });
+
 
 listarBoloes = function(){
     $.get( "http://localhost:8000/api/v1/bolao/", function( data ) {
         var boloes = $.parseJSON(data.objects);
-
         var template = _.template($("#listar-template").html());
         $('#listar-render').html(template({'boloes': boloes}));
     });
@@ -15,14 +14,18 @@ listarBoloes = function(){
 getBolao = function(e){
     $.ajax({
             type: 'GET',
-            url: '/api/v1/bolao/1',
+            url: '/api/v1/bolao/' + '1',
             success: function(data){
                 console.log(data);
-                listarBoloes(data);
+                listarBolao(data);
                 return true;
             }
         });
 };
+
+$('.js_ver_bolao').live('click', function(e){
+   getBolao();
+});
 
 
 saveBolao = function(e){
@@ -30,9 +33,7 @@ saveBolao = function(e){
         'titulo': $("#id_titulo").val(),
         'time_1': $("#id_time1").val(),
         'time_2': $("#id_time2").val()
-
     });
-    console.log(formData);
     $.ajax({
         type: 'POST',
         url: '/api/v1/bolao/',
@@ -40,7 +41,8 @@ saveBolao = function(e){
         dataType: 'json',
         data: formData,
         success: function(data){
-            console.log('oi');
+            alert('O bolão foi criado com sucesso. Convide seus amigos.');
+            window.location = "/convidar"
             return false;
         }
     });
@@ -48,8 +50,4 @@ saveBolao = function(e){
 
 $('.js_save_bolao').live('click', function(e){
    saveBolao();
-<<<<<<< HEAD
 });
-=======
-});
->>>>>>> 3aa602adf364710fb9478bc7a220e9c9c6578cde

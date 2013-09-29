@@ -23,6 +23,8 @@ urlpatterns += patterns('',
     url(r'^bolao/$', 'bolao.views.listarBolao', name='listarbolao'),
     url(r'^bolao/add', 'bolao.views.criarBolao', name='criarbolao'),
     url(r'^bolao/exibir/$', 'bolao.views.exibirBolao', name='exibirbolao'),
+    
+    url(r'^bolao/(?P<id>[\d]+)$', 'bolao.views.exibirBolao', name='exibirbolao'),
 
     url(r'', include('social_auth.urls')),
     url(r'^api/', include(v1_api.urls)),

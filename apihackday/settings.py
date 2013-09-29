@@ -49,7 +49,6 @@ USE_I18N = True
 # calendars according to the current locale
 USE_L10N = True
 
-APPEND_SLASH = False
 
 LOGIN_URL = '/'
 LOGIN_REDIRECT_URL = '/bolao/'
