@@ -15,16 +15,16 @@
                 <li><a href="{% url "finalizarbolao" %}">Finalizar Bolão</a></li>
             </ul>
             <div class="navbar-form navbar-right">
-                <span class="btn btn-lg btn-inverse">
+                <span class="btn btn-sm btn-inverse">
                     Olá {{ user.get_full_name }}, crie seu
                 </span>
-                <a class="btn btn-success btn-text-black" href="{% url "criarbolao" %}">
+                <a class="btn btn-sm btn-success btn-text-black" href="{% url "criarbolao" %}">
                     bolão
                 </a>
-                <span class="btn btn-lg btn-inverse">
+                <span class="btn btn-sm btn-inverse">
                     agora!
                 </span>
-                <a class="btn btn-success btn-text-black" href="{% url "logout" %}">Sair</a>
+                <a class="btn btn-sm btn-success btn-text-black" href="{% url "logout" %}">Sair</a>
             </div>
         </div>
 
