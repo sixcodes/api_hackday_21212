@@ -4,9 +4,14 @@ from django.contrib import admin
 from models import Bolao, Aposta
 
 
+class ApostaInline(admin.TabularInline):
+    model = Aposta
+    extra = 1
+
+
 class BolaoAdmin(admin.ModelAdmin):
     list_display = ["titulo", "time_1", "time_2", "admin", "encerrado"]
-    pass
+    inlines = [ApostaInline, ]
 
 
 class ApostaAdmin(admin.ModelAdmin):
