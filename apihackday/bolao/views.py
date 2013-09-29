@@ -16,7 +16,6 @@ from django.views.decorators.csrf import csrf_protect
 from django.views.decorators.debug import sensitive_post_parameters
 from apihackday.bolao.models import Bolao, Aposta
 
-
 def home(r):
     return render_to_response('home.html', context_instance=RequestContext(r))
 
@@ -57,15 +56,35 @@ def convidarBolao(r):
 
 @login_required
 def listarBolao(r):
-    return render_to_response('listar-bolao.html', context_instance=RequestContext(r))
+    return render_to_response('listar-boloes.html', context_instance=RequestContext(r))
 
 @login_required
 def criarBolao(r):
     return render_to_response('form-criar-bolao.html', context_instance=RequestContext(r))
 
 @login_required
-def exibirBolao(r, id):
-    return render_to_response('exibir-bolao.html', context_instance=RequestContext(r))
+def exibirBolao(r):
+    id_bolao = r.GET.get('id', None)
+    meu_bolao = Bolao.objects.get(id=id_bolao)
+    dict = {}
+    dict['titulo'] = meu_bolao.titulo
+    dict['time_1'] = meu_bolao.time_1
+    dict['time_2'] = meu_bolao.time_2
+    if meu_bolao.resultado_time_1 :
+        dict['resultado_time_1'] = meu_bolao.resultado_time_1
+    else:
+        dict['resultado_time_1'] = 0
+
+    if meu_bolao.resultado_time_2:
+        dict['resultado_time_2'] = meu_bolao.resultado_time_2
+    else:
+        dict['resultado_time_2'] = 0
+
+    return render_to_response('exibir-bolao.html', dict, context_instance=RequestContext(r))
+
+@login_required
+def finalizar(r):
+    return render_to_response('exibir-bolao.html', context_instance=RequestContext(r))    
 
 
 @sensitive_post_parameters()

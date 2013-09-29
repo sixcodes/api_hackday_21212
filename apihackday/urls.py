@@ -22,7 +22,8 @@ urlpatterns += patterns('',
     url(r'^convidar/$', 'bolao.views.convidarBolao', name='convidarbolao'),
     url(r'^bolao/$', 'bolao.views.listarBolao', name='listarbolao'),
     url(r'^bolao/add', 'bolao.views.criarBolao', name='criarbolao'),
-    url(r'^convidar', 'bolao.views.convidarBolao', name='convidar'),
+    url(r'^bolao/exibir/$', 'bolao.views.exibirBolao', name='exibirbolao'),
+    
     url(r'^bolao/(?P<id>[\d]+)$', 'bolao.views.exibirBolao', name='exibirbolao'),
 
     url(r'', include('social_auth.urls')),
@@ -30,4 +31,3 @@ urlpatterns += patterns('',
 
     url(r'^admin/', include(admin.site.urls)),
 )
-

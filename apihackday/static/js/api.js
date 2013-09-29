@@ -1,12 +1,14 @@
 
 $(document).ready(function(e){
-
 });
 
-listarBolao = function(data){
-    var template = _.template($("#bolao1-template").html());
-    $('#bolao-render').html(template({'bolao': data}));
 
+listarBoloes = function(){
+    $.get( "http://localhost:8000/api/v1/bolao/", function( data ) {
+        var boloes = $.parseJSON(data.objects);
+        var template = _.template($("#listar-template").html());
+        $('#listar-render').html(template({'boloes': boloes}));
+    });
 };
 
 getBolao = function(e){
