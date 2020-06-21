@@ -11,7 +11,7 @@ python-dateutil==2.1
 python-mimeparse==0.1.4
 python-openid==2.2.5
 python-social-auth==0.1.13
-requests==2.0.0
+requests==2.20.0
 requests-oauthlib==0.3.3
 six==1.4.1
 wsgiref==0.1.2
