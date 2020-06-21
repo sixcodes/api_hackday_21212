@@ -4,7 +4,7 @@ South==0.8.2
 -e git://github.com/omab/django-social-auth.git@a56de6257f6de6cba411496f6e86c3df3c8b577d#egg=django_social_auth-dev
 -e git://github.com/sendgrid/sendgrid-python.git#egg=python-sendgrid
 django-tastypie==0.10.0
-httplib2==0.8
+httplib2==0.18.0
 oauth2==1.5.211
 oauthlib==0.6.0
 python-dateutil==2.1
